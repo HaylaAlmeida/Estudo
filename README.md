@@ -1,2 +1,3 @@
 # Study ✍📚
-Repositório para todos meus projetos e implementações de algoritmos
+
+Repositório para organização de estudos e implementações de algoritmos
