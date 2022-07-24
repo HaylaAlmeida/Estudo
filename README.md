@@ -1,11 +1,11 @@
-# Study ✍📚
+# Estudo ✍📚
 
-Repositório para organização de estudos e implementações de algoritmos.
+## Repositório para organização de estudos.
 
 
-Roadmap Java ☕
+# Roadmap Java ☕
 
-- FUNDAMENTOS
+##  FUNDAMENTOS
 
 ◼ Sintaxe básica       																								◼ Variáveis																					◼ Tipos de dados
 
@@ -15,7 +15,7 @@ Roadmap Java ☕
 
 ◼ Programação Orientada a Objetos																			◼ Arquivos e APIs
 
-- APROFUNDAMENTO
+## APROFUNDAMENTO
 
 ◼ Gerenciamento de memória																						◼ Collections Framework															◼ Serialização
 
@@ -23,29 +23,29 @@ Roadmap Java ☕
 
 ◼ JVM																																	◼ Garbage Collection																◼ Threads
 
-- BUILD TOOLS
+## BUILD TOOLS
 
 ◼ Gradle																															◼ Mave																							◼ Ant
 
-- WEB FRAMEWORKS
+## WEB FRAMEWORKS
 
 ◼ Spring																															◼ Spring Boot																				◼ Play Framework
 
 ◼ Spark
 
-- ORM
+## ORM
 
 ◼ Spring Data JPA 																										◼ Hibernate																					◼ EBean
 
-- LOGGING FRAMEWORKS
+## LOGGING FRAMEWORKS
 
 ◼ Logback 																														◼ Log4j2																						◼ TinyLog
 
-- JDBC
+## JDBC
 
 ◼ JDBI3																																◼ JDBC Template
 
-- TESTE DE APP
+## TESTE DE APP
 
 ◼ Teste de unidade (JUnit | TestNG)                                   ◼ Teste de integração (REST Assured | JMeter)       ◼ Mocking > Mockito
 
