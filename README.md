@@ -51,3 +51,7 @@
 
 ◼ Teste de comportamento (Cucumber-JVM | Cukes | JBehave)
 
+# Livros usados
+
+Java - Como programar - 10ª Ed.
+
