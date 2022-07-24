@@ -53,5 +53,5 @@
 
 # Livros usados
 
-Java - Como programar - 10ª Ed.
+Java: como programar - 10ª Ed.
 
