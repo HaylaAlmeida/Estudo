@@ -22,5 +22,17 @@ public static void main(String[] args) {
 
 }
 
+Parênteses após main indica bloco de construção chamado método.
+
+Os métodos realizam tarefas e podem retornar informações quando as completam. A palavra-chave void indica que esse método não retornará nenhuma informação.
+
+# Saída
+
+System.out.println("Hello World!");
+
+ou
+
+System.out.printf(); // Saída formatada
+
 
 
