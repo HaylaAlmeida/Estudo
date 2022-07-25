@@ -35,7 +35,7 @@ ou
 System.out.printf("%s%n%s%n", "Hello,", "World!"); // Saída formatada
 
 # Entrada
-
+~~~
 import java.util.Scanner;
 
 public static void main(String[] args) {
@@ -51,7 +51,7 @@ public static void main(String[] args) {
       
       System.out.printf("Primeiro numero: %d\nSegundo numero: %d", x, y);
 }
-
+~~~
 Variável é uma posição na memória no qual um valor pode ser armazenado e utilizado posteriormente. Todas as variáveis em Java devem ser declaradas com um nome e um tipo.
 
 Os dados do Scanner podem prover do teclado ou de um arquivo. Deve-se especificar a origem dos dados.
@@ -61,9 +61,10 @@ A palavra-chave new significa criação de um objeto.
 O sinal de igual (=) indica inicialização. Também indica atribuição.
 
 # Condicional
-
+~~~
 if (condição) {
       
       instrução;
 
 }
+~~~
