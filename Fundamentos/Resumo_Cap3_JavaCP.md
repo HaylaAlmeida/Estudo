@@ -93,7 +93,9 @@ Account. Os parênteses à direita de Account são necessários. Esses parêntes
 representam uma chamada para um construtor, que é semelhante a um método, mas é chamado implicitamente 
 pelo operador new para inicializar as variáveis de instância de um objeto quando este é criado.
 
+# Notas sobre a declaração import
 
+Classes consideradas no mesmo pacote, isto é, no mesmo diretório, são importadas implicitamente para os arquivos de código-fonte de outras classes nesse pacote.
 
 
 
