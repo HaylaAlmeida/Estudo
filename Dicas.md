@@ -19,6 +19,8 @@ Java API que não requer uma declaração import.
 3.1 - O compilador Java não requer declarações import em um arquivo de código-fonte Java se o nome de classe totalmente qualificado for especificado sempre que um 
 nome de classe é usado. A maioria dos programadores Java prefere o estilo de programação mais conciso que as declarações import fornecem.
 
+3.2 - Anteceda cada variável de instância e declaração de método com um modificador de acesso. Geralmente, as variáveis de instância devem ser declaradas private e os métodos, public. Mais adiante no livro, discutiremos por que você pode querer declarar um método private.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
