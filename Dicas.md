@@ -16,6 +16,9 @@ recursos obsoletos você está usando. Para cada um, a documentação on-line
 2.2 Por padrão, o pacote java.lang é importado em cada programa Java; portanto, java.lang é o único na 
 Java API que não requer uma declaração import.
 
+3.1 - O compilador Java não requer declarações import em um arquivo de código-fonte Java se o nome de classe totalmente qualificado for especificado sempre que um 
+nome de classe é usado. A maioria dos programadores Java prefere o estilo de programação mais conciso que as declarações import fornecem.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
