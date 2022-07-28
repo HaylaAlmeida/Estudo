@@ -97,13 +97,55 @@ pelo operador new para inicializar as variáveis de instância de um objeto quan
 
 Classes consideradas no mesmo pacote, isto é, no mesmo diretório, são importadas implicitamente para os arquivos de código-fonte de outras classes nesse pacote.
 
+# Tipos primitivos versus tipos por referência
 
+Tipos primitivos são boolean, byte, char, short, long, float e double.
 
+Uma variável de tipo primitivo pode armazenar exatamente um valor de seu tipo declarado por vez. Por exemplo, uma variável int pode armazenar um número inteiro de 
+cada vez. Quando outro valor é atribuído a essa variável, ele substitui o anterior — que é perdido.
 
+Todos os tipos não primitivos são por referência, assim, as classes que especificam os objetos são por referência.
 
+As variáveis locais não são inicializadas por padrão. Já as variáveis de instância de tipo primitivo são inicializadas por padrão — dos tipos byte, char, short, int, long, float e double como 0, e as do tipo boolean como false.
 
+Os programas utilizam as variáveis de tipo por referência (normalmente chamadas referências) para armazenar as localizações de objetos na memória do computador. Dizemos que essa variável referencia um objeto no programa. Objetos que são referenciados podem conter muitas variáveis de instância.
 
+Para chamar métodos em um objeto, você precisa de uma referência a ele.
 
+Variáveis de tipo primitivo não fazem referência a objetos, assim elas não podem ser usadas para chamar métodos.
+
+# Declaração de construtor
+
+Ao declarar uma classe, você pode fornecer seu próprio construtor a fim de especificar a inicialização personalizada para objetos de sua classe.
+
+Account account1 = new Account("Jane Green");
+
+Nesse caso, o argumento "Jane Green" de String é passado para o construtor do objeto Account e é usado para inicializar a variável de instância name. A instrução anterior requer que a classe forneça um construtor que recebe apenas um parâmetro
+String.
+
+~~~
+public Account(String name) {
+        this.name = name;   
+    }
+~~~
+
+Um construtor deve ter o mesmo nome que a classe. Já uma lista de parâmetros de um construtor especifica que ele requer um ou mais dados para executar sua tarefa.
+
+# Construtores não podem retornar valores 
+
+Uma diferença importante entre construtores e métodos é que os construtores não podem retornar valores, portanto, não po-
+dem especificar um tipo de retorno (nem mesmo void).
+
+# Código duplicado no método main
+
+Código duplicado cpode criar problemas de manutenção de código quando ele precisa ser atualizado — se todas as seis cópias do mesmo
+código tiverem o mesmo erro ou atualização a ser feita, você deve fazer essa mudança seis vezes, sem cometer erros.
+
+# Métodos static
+
+É chamado utilizando seu nome de classe seguido por um ponto (.) e o nome de método, como em
+
+NomeDaClasse.nomeDoMétodo(argumentos)
 
 
 
