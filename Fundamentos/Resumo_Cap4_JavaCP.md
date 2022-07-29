@@ -29,4 +29,29 @@ A instrução if é uma instrução de controle de uma única entrada e uma úni
 
 A instrução if... else permite especificar uma ação a realizar quando a condição é verdadeira e uma ação diferente quando a condição é falsa.
 
-# Instrução 
+# Instruções if…else aninhadas 
+
+Um programa pode testar múltiplos casos colocando instruções if…else dentro de outras instruções if…else para criar instruções if…else aninhadas.
+
+# Blocos 
+
+A instrução if normalmente espera somente uma instrução no seu corpo. Para incluir várias instruções no corpo de uma if (ou no corpo de um else de uma instrução if…else), inclua as instruções dentro de chaves. As instruções contidas em um par de chaves (como o corpo de um método) formam um bloco. Um bloco pode ser colocado em qualquer lugar em um método em que uma única instrução pode ser colocada.
+
+# Operador condicional (?:)
+
+O Java fornece o operador condicional (?:), que pode ser utilizado no lugar de uma instrução if...else. O operador condicional é o único operador ternário do Java (isto é, um operador que recebe três operandos). Juntos, os operandos e o símbolo ?: formam uma expressão condicional. O primeiro operando (à esquerda do ?) é uma expressão boolean (isto é, uma condição que é avaliada como um valor boolean — true ou false), o segundo operando (entre o ? e :) é o valor da expressão condicional se a expressão boolean for true e o terceiro operando (à direita do :) é o valor da expressão condicional se a expressão boolean for avaliada como false. Por exemplo, a instrução
+
+System.out.println(studentGrade >= 60 ? "Passed" : "Failed");
+
+imprime o valor do argumento da expressão condicional de println. A expressão condicional nessa instrução é avaliada para a string "Passed" se a expressão boolean studentGrade >= 60 for verdadeira e para a string "Failed" se a expressão boolean for falsa. 
+
+
+
+
+
+
+
+
+
+
+
