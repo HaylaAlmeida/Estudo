@@ -21,6 +21,8 @@ nome de classe é usado. A maioria dos programadores Java prefere o estilo de pr
 
 3.2 - Anteceda cada variável de instância e declaração de método com um modificador de acesso. Geralmente, as variáveis de instância devem ser declaradas private e os métodos, public. Mais adiante no livro, discutiremos por que você pode querer declarar um método private.
 
+4.1 Você não deve chamar métodos a partir de construtores. 
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
@@ -73,6 +75,9 @@ capitalização apropriada.
 ou um erro de compilação. O operador de igualdade deve ser lido como “igual a”, e o operador de atribuição,
 como “obtém” ou “obtém o valor de”. Para evitar confusão, algumas pessoas leem o operador de igualdade 
 como “duplo igual” ou “igual igual”.
+
+4.1 - Colocar um ponto e vírgula depois da condição em uma instrução if ou if…else resulta em um erro de lógica em instruções if de seleção única e um erro de 
+sintaxe em instruções if…else de seleção dupla (quando a parte if contém uma instrução de corpo real).
 
 # Boa prática de programação 
 
@@ -160,3 +165,7 @@ avalia a string de controle de formato no primeiro argumento, o método executa 
 especificador(es) de conversão nessa string. Se a string de controle de formato fosse obtida do usuário, 
 alguém mal-intencionado poderia fornecer especificadores de conversão
 que seriam executados por System.out.printf, possivelmente causando uma falha de segurança.
+
+4.1 - Em uma if…else aninhada, certifique-se de testar todos os casos possíveis.
+
+4.2 - Use expressões do mesmo tipo para o segundo e terceiro operandos do ?: para evitar erros sutis.
