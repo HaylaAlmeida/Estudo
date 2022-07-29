@@ -167,6 +167,8 @@ nomes de identificadores.
 
 4.4 - Diferentemente dos operadores binários, os operadores de incremento e decremento unários devem ser colocados ao lado dos seus operandos, sem espaços no meio.
 
+4.5 Consulte a tabela de precedência e associatividade de operadores (Anexo A) ao escrever expressões que contêm muitos operadores. Confirme se os operadores na expressão são realizados na ordem em que você espera. Se não tiver certeza da ordem de avaliação em uma expressão complexa, divida a expressão em instruções menores ou use parênteses para forçar a ordem da avaliação, exatamente como faria em uma expressão algébrica. Certifique-se de observar que alguns operadores como atribuição (=) se associam da direita para a esquerda, em vez de da esquerda para a direita.
+
 # Dica de prevenção de erro 
 
 2.1 - À medida que você escreve novos programas ou modifica aqueles existentes, mantenha seus comentários 
@@ -213,3 +215,7 @@ uma mensagem de erro) em vez de permitir que o erro ocorra.
 
 4.5 - Inicializar variáveis locais quando são declaradas ajuda a evitar quaisquer erros de compilação que poderiam surgir de tentativas para utilizar variáveis não inicializadas. Embora o Java não exija que as inicializações das variáveis locais sejam incorporadas a
 declarações, ele exige que variáveis locais sejam inicializadas antes de seus valores serem usados em uma expressão.
+
+# Dica de portabilidade 
+
+4.1 - Os tipos primitivos em Java são portáveis entre todas as plataformas de computador que suportam Java.
