@@ -85,5 +85,5 @@ public class DrawPanelTest {
 
 Saída:
 
-![image](https://user-images.githubusercontent.com/80348569/181843462-21d23249-7a2c-4eb1-b621-e93025d18cbb.png)
+![image](https://user-images.githubusercontent.com/80348569/181843890-c15cdd3a-c3fb-4f55-8ace-97b176c96c1a.png) ![image](https://user-images.githubusercontent.com/80348569/181843462-21d23249-7a2c-4eb1-b621-e93025d18cbb.png)
 
