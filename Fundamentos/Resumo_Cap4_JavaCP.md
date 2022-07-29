@@ -45,8 +45,9 @@ System.out.println(studentGrade >= 60 ? "Passed" : "Failed");
 
 imprime o valor do argumento da expressão condicional de println. A expressão condicional nessa instrução é avaliada para a string "Passed" se a expressão boolean studentGrade >= 60 for verdadeira e para a string "Failed" se a expressão boolean for falsa. 
 
+# Instrução de repetição while
 
-
+Uma instrução de repetição while permite especificar que um programa deve repetir uma ação enquanto alguma condição permanece verdadeira.
 
 
 
