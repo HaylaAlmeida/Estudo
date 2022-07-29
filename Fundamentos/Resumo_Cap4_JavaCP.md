@@ -49,7 +49,56 @@ imprime o valor do argumento da expressão condicional de println. A expressão 
 
 Uma instrução de repetição while permite especificar que um programa deve repetir uma ação enquanto alguma condição permanece verdadeira.
 
+# Repetição controlada por contador 
 
+A repetição controlada por contador utiliza uma variável chamada contador (ou variável de controle) para controlar o número de vezes que um conjunto de instruções é executado.
+
+A repetição controlada por contador costuma ser chamada de repetição definida, porque o número de repetições é conhecido antes de o loop começar a executar.
+
+Um total é uma variável utilizada para acumular a soma de vários valores. Variáveis utilizadas para armazenar totais normalmente são inicializadas como zero antes de serem utilizadas em um programa.
+
+A declaração de uma variável local deve aparecer antes de a variável ser utilizada nesse método. Uma variável local não pode ser acessada fora do método em que é declarada.
+
+Quando a divisão de um inteiro por outro resulta em um número fracionário, a parte fracionária do cálculo é truncada.
+
+# Repetição controlada por sentinela 
+
+Na repetição controlada por sentinela, um valor especial chamado de valor de sentinela (também chamado de valor de sinal, valor fictício ou valor de flag) é utilizado para indicar o “fim da entrada de dados”.
+
+Deve-se escolher um valor de sentinela que não possa ser confundido com um valor aceitável de entrada. 
+
+O refinamento passo a passo de cima para baixo é essencial para o desenvolvimento de programas bem estruturados. 
+
+Para realizar um cálculo de ponto flutuante com valores inteiros, faça a coerção (conversão) de um dos números inteiros para o tipo double. 
+
+O Java sabe como avaliar somente expressões aritméticas nas quais os tipos dos operandos são idênticos. Para assegurar isso, o Java realiza uma operação chamada de promoção em operandos selecionados.
+
+O operador de coerção unário é formado colocando-se parênteses em torno do nome de um tipo.
+
+# Operadores de atribuição compostos 
+
+Os operadores de atribuição compostos abreviam expressões de atribuição. 
+
+Instruções da forma 
+
+variável = variável operador expressão;
+
+em que operador é um dos operadores binários +, - *, / ou %, podem ser escritas na forma 
+
+variável operador= expressão;
+
+# Operadores de incremento e decremento
+
+O operador de incremento unário, ++, e operador de decremento unário, ––, adicionam 1 ao, ou subtraem 1 do, valor de uma variável numérica.
+
+O operador de decremento ou incremento que é prefixado a uma variável é o operador de incremento de prefixo ou decremento de prefixo, respectivamente. O operador de incremento ou decremento que é pós-fixado a uma variável é o operador de incremento pós-fixo ou decremento
+pós-fixo, respectivamente.
+
+Utilizar o operador de pré-incremento ou pré-decremento para adicionar ou subtrair 1 é conhecido como pré-incrementar ou pré-decrementar, respectivamente. Pré-incrementar (ou pré-decrementar) uma variável faz com que a variável seja incrementada ou decrementada por 1; então o novo valor da variável é utilizado na expressão em que ela aparece.
+
+Utilizar o operador de incremento ou decremento pós-fixo para adicionar ou subtrair 1 é conhecido como pós-incrementar ou pós-decrementar, respectivamente. Pós-incrementar ou pós-decrementar a variável faz com que seu valor seja utilizado na expressão em que ele aparece; então o valor da variável é incrementado ou decrementado por 1.
+
+Ao incrementar ou decrementar uma variável em uma instrução isolada, o pré-incremento ou o pós-incremento têm o mesmo efeito, assim como o pré-decremento ou o pós-decremento.
 
 
 
