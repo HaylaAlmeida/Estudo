@@ -23,6 +23,18 @@ nome de classe é usado. A maioria dos programadores Java prefere o estilo de pr
 
 4.1 Você não deve chamar métodos a partir de construtores. 
 
+4.2 - A experiência tem mostrado que a parte mais difícil de resolver um problema em um computador é desenvolver o algoritmo para a
+solução. Uma vez que um algoritmo correto foi especificado, produzir um programa Java normalmente é simples.
+
+4.3 - Cada refinamento, bem como a própria parte superior, é uma especificação completa do algoritmo; somente o nível de detalhe varia.
+
+4.4 - Muitos programas podem ser divididos logicamente em três fases: uma fase de inicialização que inicializa as variáveis do programa; uma fase de processamento que insere os valores dos dados e ajusta as variáveis do programa de maneira correspondente; e uma
+fase de conclusão que calcula e insere os resultados finais.
+
+4.5 - Termine o processo de refinamento passo a passo de cima para baixo quando tiver especificado o algoritmo de pseudocódigo em detalhes suficientes para você converter o pseudocódigo em Java. Normalmente, implementar o programa Java é então simples e direto.
+
+4.6 - Alguns programadores não utilizam ferramentas de desenvolvimento de programa como pseudocódigo. Eles acreditam que seu objetivo final é resolver o problema em um computador e que escrever pseudocódigo só retarda a produção das saídas finais. Embora isso talvez funcione para problemas simples e conhecidos, pode levar a erros sérios e atrasos em projetos grandes e complexos.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
@@ -79,6 +91,25 @@ como “duplo igual” ou “igual igual”.
 4.1 - Colocar um ponto e vírgula depois da condição em uma instrução if ou if…else resulta em um erro de lógica em instruções if de seleção única e um erro de 
 sintaxe em instruções if…else de seleção dupla (quando a parte if contém uma instrução de corpo real).
 
+4.2 - Não fornecer, no corpo de uma instrução while, uma ação que consequentemente faz com que a condição na while torne-se falsa
+normalmente resulta em um erro de lógica chamado loop infinito (o loop nunca termina).
+
+4.3 - Utilizar o valor de uma variável local antes de ela ser inicializada resulta em um erro de compilação. Todas as variáveis locais
+devem ser inicializadas antes de seus valores serem utilizados nas expressões.
+
+4.4 - Assumir que divisão de inteiros arredonda (em vez de truncar) pode levar a resultados incorretos. Por exemplo, 7 ÷ 4, que produz
+1,75 na aritmética convencional, é truncado para 1 na aritmética de inteiros, em vez de arredondado para 2.
+
+4.5 - Omitir as chaves que delimitam um bloco pode levar a erros de lógica, como loops infinitos. Para evitar esse problema, alguns programadores incluem o corpo de cada instrução de controle dentro de chaves mesmo se o corpo contiver somente uma única instrução.
+
+4.6 - Um operador de coerção pode ser utilizado para conversão entre tipos numéricos e primitivos, como int e double e entre tipos por referência relacionados. Aplicar
+uma coerção ao tipo errado pode causar erros de compilação ou erros de tempo de execução.
+
+4.7 - Utilizar números de ponto flutuante de uma maneira que sejam representados precisamente pode levar a resultados incorretos.
+
+4.8 - Tentar utilizar o operador de incremento ou decremento em uma expressão diferente daquela a que um valor pode ser atribuído é
+um erro de sintaxe. Por exemplo, escrever ++(x + 1) é um erro de sintaxe, porque (x + 1) não é uma variável.
+
 # Boa prática de programação 
 
 2.1 - Algumas organizações exigem que todo programa comece com um comentário que informa o objetivo e o autor 
@@ -132,6 +163,10 @@ as variáveis de instância pode resultar em um código difícil de ler.
 3.2 Usar a palavra-chave this é uma prática amplamente aceita a fim de minimizar a proliferação de 
 nomes de identificadores.
 
+4.3 - Em um loop controlado por sentinela, as instruções devem lembrar o usuário do sentinela.
+
+4.4 - Diferentemente dos operadores binários, os operadores de incremento e decremento unários devem ser colocados ao lado dos seus operandos, sem espaços no meio.
+
 # Dica de prevenção de erro 
 
 2.1 - À medida que você escreve novos programas ou modifica aqueles existentes, mantenha seus comentários 
@@ -169,3 +204,12 @@ que seriam executados por System.out.printf, possivelmente causando uma falha de
 4.1 - Em uma if…else aninhada, certifique-se de testar todos os casos possíveis.
 
 4.2 - Use expressões do mesmo tipo para o segundo e terceiro operandos do ?: para evitar erros sutis.
+
+4.3 - Inicialize cada contador e total, em sua declaração ou em uma instrução de atribuição. Normalmente, os totais são inicializados
+como 0. Os contadores normalmente são inicializados como 0 ou 1, dependendo de como eles são utilizados.
+
+4.4 - Ao realizar cálculos de divisão (/) ou resto (%) em que o operando à direita pode ser zero, teste e lide com isso (por exemplo, exibir
+uma mensagem de erro) em vez de permitir que o erro ocorra.
+
+4.5 - Inicializar variáveis locais quando são declaradas ajuda a evitar quaisquer erros de compilação que poderiam surgir de tentativas para utilizar variáveis não inicializadas. Embora o Java não exija que as inicializações das variáveis locais sejam incorporadas a
+declarações, ele exige que variáveis locais sejam inicializadas antes de seus valores serem usados em uma expressão.
