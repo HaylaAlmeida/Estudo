@@ -35,17 +35,17 @@ resultados de ponto flutuante. Utilize classe Scanner e repetição controlada p
 Exibir o consumo de cada viagem e o total
 
 2º Refinamento
-
+```
 Inicializar as variáveis
 Inserir os registros e calcular o consumo
 Somar todos os consumos
 Exibir o consumo de cada viagem e o total
-
+````
 3º Refinamento
-
-Inicializar a variável de quilometragem como zero |
-Inicializar a variável soma de quilometragem como zero |
-Inicializar a variável consumo como zero |
+```
+Inicializar a variável de quilometragem como zero
+Inicializar a variável soma de quilometragem como zero
+Inicializar a variável consumo como zero
 Inicializar a variável soma de consumo como zero 
 
 
@@ -59,6 +59,8 @@ Enquanto a quilometragem for maior que zero
     Solicite que o usuário insira a quilometragem
     Insira a quilometragem
     Imprimir o consumo e o total
+```
+Programa
 ~~~   
 import java.util.Scanner;
 
