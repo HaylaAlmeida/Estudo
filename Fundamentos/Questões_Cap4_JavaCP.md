@@ -8,10 +8,6 @@ pode evitar esse resultado?
 
 A parte fracionária é truncada(perdida), para evitar é só utilizar um operador de coerção para o tipo float ou double em um dos valores.
 
-4.12 Descreva as duas maneiras como as instruções de controle podem ser combinadas.
-
-Aninhar e 
-
 4.13 Que tipo de repetição seria apropriado para calcular a soma dos primeiros 100 inteiros positivos? Que tipo seria apropriado para calcular a soma de um número arbitrário de inteiros positivos? 
 Descreva brevemente como cada uma dessas tarefas poderia ser realizada.
 
@@ -47,10 +43,11 @@ Exibir o consumo de cada viagem e o total
 
 3º Refinamento
 
-Inicializar a variável de quilometragem como zero
-Inicializar a variável soma de quilometragem como zero
-Inicializar a variável consumo como zero
-Inicializar a variável soma de consumo como zero
+Inicializar a variável de quilometragem como zero |
+Inicializar a variável soma de quilometragem como zero |
+Inicializar a variável consumo como zero |
+Inicializar a variável soma de consumo como zero 
+
 
 Solicite que o usuário insira a quilometragem
 Insira a quilometragem
@@ -61,7 +58,36 @@ Enquanto a quilometragem for maior que zero
     Some o consumo
     Solicite que o usuário insira a quilometragem
     Insira a quilometragem
+    Imprimir o consumo e o total
+~~~   
+import java.util.Scanner;
 
-Imprimir o consumo e o total
-    
-    
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int km = 0;
+        int combustivel = 0;
+        double consumo = 0;
+        int somaKm = 0;
+        int somaCombustivel = 0;
+
+        System.out.println("Insira a quilometragem rodada: ");
+        km = input.nextInt();
+
+        while(km > 0){
+            somaKm += km;
+            System.out.println("Insira a quantidade de combustivel gasto: ");
+            combustivel = input.nextInt();
+            somaCombustivel += combustivel;
+            consumo = (double) km/combustivel;
+            System.out.printf("O consumo nessa corrida foi de %.2f km por litro%n", consumo);
+            System.out.printf("O total de km foi %d km%n", somaKm);
+            System.out.printf("O total de combustível foi %d litros%n", somaCombustivel);
+            System.out.println("Insira a quilometragem rodada\n(Para sair, insira um número menor ou igual a 0): ");
+            km = input.nextInt();
+        }
+
+    }
+} 
+~~~
+
