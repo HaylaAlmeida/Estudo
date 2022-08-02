@@ -290,3 +290,196 @@ public class Main {
     }
 }
 ~~~
+4.24 (Validando entrada de usuário) Modifique o programa na Figura 4.12 para validar suas entradas. Para qualquer entrada, se o valor entrado for diferente de 1 ou 2, continue o loop até o usuário inserir um valor correto.
+
+~~~
+import java.util.Scanner;
+
+public class Analysis {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int passes = 0;
+        int failures = 0;
+        int studentCounter = 1;
+
+        while (studentCounter <= 10) {
+            System.out.print("Enter result (1 = pass, 2 = fail): ");
+            int result = input.nextInt();
+            while (result != 1 && result != 2) {
+                System.out.print("Re-enter result (1 = pass, 2 = fail): ");
+                result = input.nextInt();
+            }
+            if (result == 1)
+                passes = passes + 1;
+            else
+                        failures = failures + 1;
+            studentCounter++;
+        }
+        System.out.printf("Passed: %d%nFailed: %d%n", passes, failures);
+        if (passes > 8)
+            System.out.println("Bonus to instructor!");
+    }
+}
+~~~
+
+4.29 (Quadrado de asteriscos) Escreva um aplicativo que solicita ao usuário que insira o tamanho do lado de um quadrado e, então, exibe um quadrado vazio desse tamanho com asteriscos. Seu programa deve trabalhar com quadrados de todos os comprimentos de lado possíveis
+entre 1 e 20.
+~~~
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int lado, linha = 0, coluna = 0, cont = 0;
+        System.out.printf("Insira o tamanho do quadrado: ");
+        lado = input.nextInt();
+        linha = lado;
+        while (cont < lado) {
+            coluna = 0;
+            while (coluna < linha) {
+                System.out.printf("*\t");
+                coluna++;
+            }
+            System.out.println("");
+            cont++;
+        }
+
+    }
+}
+~~~
+
+4.30 (Palíndromos) Um palíndromo é uma sequência de caracteres que é lida da esquerda para a direita ou da direita para a esquerda. Por exemplo, cada um dos seguintes inteiros de cinco dígitos é um palíndromo: 12321, 55555, 45554 e 11611. Escreva um aplicativo que lê em um inteiro de cinco dígitos e determina se ele é ou não um palíndromo. Se o número não for de cinco dígitos, exiba uma mensagem de
+erro e permita que o usuário insira um novo valor.
+~~~
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int inteiro, resto,soma=0,temp;
+
+        System.out.printf("Insira um inteiro de cinco dígitos: ");
+        inteiro = input.nextInt();
+        while (inteiro < 10000 || inteiro > 99999) {
+            System.out.printf("Insira um inteiro de cinco dígitos: \n");
+            inteiro = input.nextInt();
+        }
+
+        temp = inteiro;
+        while(inteiro > 0){
+            resto = inteiro % 10;
+            soma = (soma * 10) + resto;
+            inteiro = inteiro / 10;
+        }
+        if(temp == soma)
+            System.out.println("Palíndromo");
+        else
+            System.out.println("Não é palíndromo");
+    }
+}
+~~~
+
+4.31 (Imprimindo o equivalente decimal de um número binário) Escreva um aplicativo que insere um número inteiro que contém somente 0s e 1s (isto é, um número inteiro binário) e imprime seu equivalente decimal. [Dica: utilize os operadores de resto e divisão para pegar os dígitos do número binário um de cada vez da direita para a esquerda. No sistema de números decimais, o dígito mais à direita tem um valor posicional de 1 e o próximo dígito à esquerda um valor posicional de 10, depois 100, depois 1.000 e assim por diante. O número decimal 234 pode ser interpretado como 4 * 1 + 3 * 10 + 2 * 100. No sistema de número binário, o dígito mais à direita tem um valor posicional de 1, o próximo dígito à esquerda um valor posicional de 2, depois 4, depois 8 e assim por diante. O equivalente decimal
+do binário 1.101 é 1 * 1 + 0 * 2 + 1 * 4 + 1 * 8 ou 1 + 0 + 4 + 8 ou 13.]
+
+~~~
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int binario, resto, soma=0, cont = 1;
+
+        System.out.printf("Insira um binário: ");
+        binario = input.nextInt();
+
+        while(binario > 0){
+            resto = binario % 10;
+            soma += resto * cont;
+            binario = binario / 10;
+            cont *= 2;
+        }
+        System.out.printf("%d%n", soma);
+    }
+}
+~~~
+
+4.32 (Padrão de tabuleiro de damas de asteriscos) Escreva um aplicativo que utiliza apenas as instruções de saída 
+
+System.out.print("* "); 
+
+System.out.print(" "); 
+
+System.out.println(); 
+
+para exibir o padrão de tabuleiro de damas a seguir. Uma chamada de método System.out.println sem argumentos faz com que o pro-
+grama gere saída de um único caractere de nova linha. [Dica: as instruções de repetição são requeridas.]
+
+![image](https://user-images.githubusercontent.com/80348569/182286177-fac4bb4a-5bf5-41a8-a1b6-b6f123604668.png)
+
+~~~
+public class Main {
+    public static void main(String[] args) {
+
+        int cont = 8, coluna = 0;
+
+        while (cont > 0) {
+            coluna = 0;
+            while (coluna < 8){
+                System.out.print("* ");
+                System.out.print(" ");
+                coluna++;
+            }
+            System.out.println();
+            if (cont % 2 == 0){
+                System.out.print(" ");
+            }
+            cont--;
+        }
+    }
+}
+~~~
+
+4.37 (Fatorial) O fatorial de um inteiro não negativo n é escrito como n! (pronuncia-se “n fatorial”) e é definido como segue: 
+
+n! = n · (n – 1) · (n – 2) · ... · 1 (para valores de n maiores ou iguais a 1)
+e n! = 1 (para n = 0)
+
+Por exemplo, 5! = 5 · 4 · 3 · 2 · 1, o que dá 120.
+
+a) Escreva um aplicativo que lê um inteiro não negativo, calcula e imprime seu fatorial.
+
+~~~
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int n, soma = 1;
+        System.out.println("Insira um número para descobrir seu fatorial: ");
+        n = input.nextInt();
+        while (n > 0){
+            soma *= n;
+            n--;
+        }
+        System.out.printf("%d%n", soma);
+    }
+}
+~~~
+
+b) Escreva um aplicativo que estima o valor da constante matemática e utilizando a fórmula a seguir. Permita ao usuário inserir o número de termos a calcular. 
+
+e = 1 + 1/1! + 1/2! + 1/3! + ...
+
+
+
+
+
+
+
+
