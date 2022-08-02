@@ -544,10 +544,72 @@ b) Escreva um aplicativo que estima o valor da constante matemática e utilizand
 
 e = 1 + 1/1! + 1/2! + 1/3! + ...
 
+~~~
+import java.util.Scanner;
 
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
+        int n, fatorial = 1, termos;
+        double e = 1;
+        System.out.println("Quantidade de iterações: ");
+        n = input.nextInt();
+        termos = 0;
+        while (n > 0){
+            termos = n;
+            fatorial = 1;
+            while (termos > 0) {
+                fatorial *= termos;
+                termos--;
+            }
+            e = e + 1/(double) fatorial;
+            n--;
+        }
+        System.out.printf("%f%n", e);
+    }
+}
+~~~
 
+c) Escreva um aplicativo que computa o valor de e x utilizando a fórmula a seguir. Permita ao usuário inserir o número de termos a calcular.
 
+e^x = 1 + x/1! + + x^2/2! + x^3/3! + ...
+
+~~~
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int n, fatorial = 1, termos, cont = 0, x, aux;
+        double e = 1;
+        System.out.println("Quantidade de iterações: ");
+        n = input.nextInt();
+        System.out.println("Valor de x: ");
+        x = input.nextInt();
+        aux = x;
+        termos = 0;
+        while (n > 0){
+            termos = n;
+            fatorial = 1;
+            cont = termos;
+            x = aux;
+            while (termos > 0) {
+                fatorial *= termos;
+                termos--;
+            }
+            while (cont > 1){
+                 x *= aux;
+                 cont--;
+            }
+            e = e + x/(double) fatorial;
+            n--;
+        }
+        System.out.printf("%f%n", e);
+    }
+}
+~~~
 
 
 
