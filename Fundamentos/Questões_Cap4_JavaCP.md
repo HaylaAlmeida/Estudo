@@ -261,3 +261,32 @@ public class Main {
     }
 }
 ~~~
+4.23 (Encontre os dois números maiores) Utilizando uma abordagem semelhante àquela do Exercício 4.21, encontre os dois maiores valores entre os 10 valores inseridos. [Observação: você só pode inserir cada número uma vez.]
+
+~~~
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int counter = 0;
+        int number = 0;
+        int largest = 0;
+        int largest2 = 0;
+        int aux = 0;
+
+        while (counter < 10) {
+            System.out.printf("Insira o número %d: \n", counter + 1);
+            number = input.nextInt();
+            if (number > largest){
+                aux = largest;
+                largest = number;
+            }
+            largest2 = aux;
+            counter++;
+        }
+        System.out.printf("O maior número é: %d e o segundo maior é: %d\n", largest, largest2);
+    }
+}
+~~~
