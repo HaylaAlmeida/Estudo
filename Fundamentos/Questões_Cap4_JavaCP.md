@@ -444,6 +444,74 @@ public class Main {
 }
 ~~~
 
+4.35 (Lados de um triângulo) Escreva um aplicativo que lê três valores diferentes de zero inseridos pelo usuário, determina e imprime se eles poderiam representar os lados de um triângulo.
+
+~~~
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int a, b, c;
+        System.out.printf("Lado A: \n");
+        a = input.nextInt();
+        System.out.printf("Lado B: \n");
+        b = input.nextInt();
+        System.out.printf("Lado C: \n");
+        c = input.nextInt();
+        if (a + b > c && b + c > a && a + c > b){
+            System.out.printf("Sim\n");
+        }
+        else
+            System.out.printf("Não\n");
+    }
+}
+~~~
+4.36 (Lados de um triângulo direito) Escreva um aplicativo que lê três inteiros diferentes de zero, determina e imprime se eles poderiam representar os lados de um triângulo direito.
+~~~
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int a, b, c, maior;
+        System.out.printf("Lado A: \n");
+        a = input.nextInt();
+        maior = a;
+        System.out.printf("Lado B: \n");
+        b = input.nextInt();
+        System.out.printf("Lado C: \n");
+        c = input.nextInt();
+        if (b > maior){
+            maior = b;
+        }
+        if (c > maior){
+            maior = c;
+        }
+        if ((a + b) > c && (b + c) > a && (a + c) > b){
+            if (b == maior){
+                if (maior*maior == (a*a+c*c)){
+                    System.out.println("Sim");
+                }
+            }  else if (c == maior) {
+                if (maior*maior == (a*a+b*b)){
+                    System.out.println("Sim");
+                }
+            } else {
+                if (a*a == (b*b+c*c)) {
+                    System.out.println("Sim");
+                }
+            }
+        }
+        else {
+            System.out.printf("Não\n");
+        }
+    }
+}
+~~~
+
 4.37 (Fatorial) O fatorial de um inteiro não negativo n é escrito como n! (pronuncia-se “n fatorial”) e é definido como segue: 
 
 n! = n · (n – 1) · (n – 2) · ... · 1 (para valores de n maiores ou iguais a 1)
