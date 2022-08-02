@@ -185,3 +185,79 @@ public class Main {
 ~~~
 
 4.20 (Calculador de salários) Desenvolva um aplicativo Java que determina o salário bruto de cada um de três empregados. A empresa paga as horas normais pelas primeiras 40 horas trabalhadas por cada funcionário e 50% a mais por todas as horas trabalhadas além das 40 horas. Você recebe uma lista de empregados, o número de horas trabalhadas por eles na semana passada e o salário-hora de cada um. Seu programa deve aceitar a entrada dessas informações para cada empregado e, então, determinar e exibir o salário bruto do empregado. Utilize a classe Scanner para inserir os dados.
+
+~~~
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int cont = 1;
+        int horasNormais = 40;
+        int horasTotais = 0;
+        double salarioFinal, salarioHora = 0, aumento = 1.5;
+
+        while (cont != 4){
+            System.out.printf("Insira as horas trabalhadas do %d funcionário: \n", cont);
+            horasTotais = input.nextInt();
+            System.out.printf("Insira o salário-hora do %d funcionário: \n", cont);
+            salarioHora = input.nextDouble();
+            salarioFinal = horasNormais * salarioHora + aumento * ((horasTotais - horasNormais) * salarioHora);
+            System.out.printf("O salário do %d funcionário é: %.2f\n\n", cont, salarioFinal);
+            cont++;
+        }
+    }
+}
+~~~
+
+4.21 (Localize o maior número) O processo de localizar o maior valor é muito utilizado em aplicativos de computador. Por exemplo, um programa que determina o vencedor de uma competição de vendas inseriria o número de unidades vendidas por cada vendedor. O vendedor que vende mais unidades ganha a competição. Escreva um programa em pseudocódigo e, então, um aplicativo Java que aceita como entrada uma série de 10 inteiros e determina e imprime o maior dos inteiros. Seu programa deve utilizar pelo menos as três variáveis a seguir: 
+
+a) counter: um contador para contar até 10 (isto é, monitorar quantos números foram inseridos e determinar quando todos os 10 números foram processados).
+
+b) number: o inteiro mais recentemente inserido pelo usuário.
+
+c) largest: o maior número encontrado até agora.
+
+~~~
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int counter = 0;
+        int number = 0;
+        int largest = 0;
+
+        while (counter < 10) {
+            System.out.printf("Insira o número %d: \n", counter + 1);
+            number = input.nextInt();
+            if (number > largest){
+                largest = number;
+            }
+            counter++;
+        }
+        System.out.printf("O maior número é: %d", largest);
+    }
+}
+~~~
+
+4.22 (Saída no formato de tabela) Escreva um aplicativo Java que utiliza um loop para imprimir a seguinte tabela de valores:
+![image](https://user-images.githubusercontent.com/80348569/182271664-efa926d8-a4a3-446d-87a4-bb0486f3792c.png)
+
+~~~
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int counter = 1;
+        System.out.printf("N\t\t10*N\t\t100*N\t\t1000*N%n");
+        while (counter < 6){
+            System.out.printf("%d\t\t%d\t\t\t%d\t\t\t%d%n", counter, counter * 10, counter * 100, counter * 1000);
+            counter++;
+        }
+    }
+}
+~~~
