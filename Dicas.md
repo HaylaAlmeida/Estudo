@@ -35,6 +35,8 @@ fase de conclusão que calcula e insere os resultados finais.
 
 4.6 - Alguns programadores não utilizam ferramentas de desenvolvimento de programa como pseudocódigo. Eles acreditam que seu objetivo final é resolver o problema em um computador e que escrever pseudocódigo só retarda a produção das saídas finais. Embora isso talvez funcione para problemas simples e conhecidos, pode levar a erros sérios e atrasos em projetos grandes e complexos.
 
+5.1 - “Manter a coisa simples” é um bom conselho para a maior parte do código que você escreverá.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
@@ -109,6 +111,9 @@ uma coerção ao tipo errado pode causar erros de compilação ou erros de tempo
 
 4.8 - Tentar utilizar o operador de incremento ou decremento em uma expressão diferente daquela a que um valor pode ser atribuído é
 um erro de sintaxe. Por exemplo, escrever ++(x + 1) é um erro de sintaxe, porque (x + 1) não é uma variável.
+
+5.1 - Uma vez que valores de ponto flutuante podem ser aproximados, controlar loops com variáveis de ponto flutuante pode resultar em
+valores de contador imprecisos e testes de terminação imprecisos.
 
 # Boa prática de programação 
 
@@ -215,6 +220,8 @@ uma mensagem de erro) em vez de permitir que o erro ocorra.
 
 4.5 - Inicializar variáveis locais quando são declaradas ajuda a evitar quaisquer erros de compilação que poderiam surgir de tentativas para utilizar variáveis não inicializadas. Embora o Java não exija que as inicializações das variáveis locais sejam incorporadas a
 declarações, ele exige que variáveis locais sejam inicializadas antes de seus valores serem usados em uma expressão.
+
+5.1 - Utilize números inteiros para controlar loops de contagem.
 
 # Dica de portabilidade 
 
