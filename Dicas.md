@@ -121,6 +121,10 @@ um erro de sintaxe. Por exemplo, escrever ++(x + 1) é um erro de sintaxe, porqu
 5.1 - Uma vez que valores de ponto flutuante podem ser aproximados, controlar loops com variáveis de ponto flutuante pode resultar em
 valores de contador imprecisos e testes de terminação imprecisos.
 
+5.5 - Utilizar um operador relacional incorreto na condição de continuação de um loop que conta para baixo (por exemplo, utilizar i <= 1 em vez de i >= 1 em uma contagem de loop para baixo até 1) normalmente é um erro de lógica.
+
+5.6 - Não use operadores de igualdade (!= ou ==) em uma condição de continuação de loop se a variável de controle do loop é incrementada ou decrementada por mais que 1. Por exemplo, considere o cabeçalho da instrução for (int counter = 1; counter != 10; counter += 2). O teste de continuação de loop counter!= 10 nunca torna-se falso (resultando em um loop infinito) porque counter é incrementado por 2 após cada iteração.
+
 # Boa prática de programação 
 
 2.1 - Algumas organizações exigem que todo programa comece com um comentário que informa o objetivo e o autor 
