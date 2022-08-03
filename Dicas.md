@@ -259,4 +259,4 @@ também fornece a classe java.math.BigDecimal para esse propósito.
 
 4.1 - Os tipos primitivos em Java são portáveis entre todas as plataformas de computador que suportam Java.
 
-
+5.1 - As combinações de teclas pressionadas para inserir o fim do arquivo são dependentes do sistema.
