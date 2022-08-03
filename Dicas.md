@@ -37,9 +37,6 @@ fase de conclusão que calcula e insere os resultados finais.
 
 5.1 - “Manter a coisa simples” é um bom conselho para a maior parte do código que você escreverá.
 
-5.2 - Sempre inclua chaves em uma instrução do…while. Isso ajuda a eliminar ambiguidade entre a instrução while e uma instrução
-do...while que contém apenas uma instrução.
-
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
@@ -133,6 +130,8 @@ variável de controle depois do corpo de for é um erro de compilação.
 
 5.6 - Não use operadores de igualdade (!= ou ==) em uma condição de continuação de loop se a variável de controle do loop é incrementada ou decrementada por mais que 1. Por exemplo, considere o cabeçalho da instrução for (int counter = 1; counter != 10; counter += 2). O teste de continuação de loop counter!= 10 nunca torna-se falso (resultando em um loop infinito) porque counter é incrementado por 2 após cada iteração.
 
+5.7 - Esquecer uma instrução break quando esta for necessária em um switch é um erro de lógica.
+
 # Boa prática de programação 
 
 2.1 - Algumas organizações exigem que todo programa comece com um comentário que informa o objetivo e o autor 
@@ -194,6 +193,12 @@ nomes de identificadores.
 
 5.1 - Para melhor legibilidade, limite o tamanho de cabeçalhos da instrução de controle a uma única linha se possível.
 
+5.2 - Sempre inclua chaves em uma instrução do…while. Isso ajuda a eliminar ambiguidade entre a instrução while e uma instrução
+do...while que contém apenas uma instrução.
+
+5.3 - Embora cada case e o caso default em uma switch possam ocorrer em qualquer ordem, coloque o caso default por último.
+Quando o caso default é listado por último, o break para esse caso não é necessário.
+
 # Dica de prevenção de erro 
 
 2.1 - À medida que você escreve novos programas ou modifica aqueles existentes, mantenha seus comentários 
@@ -254,6 +259,10 @@ estourar. Escreva suas condições de loop com cuidado para evitar isso.
 
 5.6 - Não utilizar variáveis de tipo double (ou float) para realizar cálculos monetários precisos. A imprecisão dos números de ponto flutuante pode resultar em erros. Nos exercícios, você aprenderá a usar inteiros para realizar cálculos monetários precisos — o Java
 também fornece a classe java.math.BigDecimal para esse propósito.
+
+5.7 - Em uma instrução switch, certifique-se de testar todos os valores possíveis da expressão de controle.
+
+5.8 - Forneça um case default nas instruções switch. Isso faz com que você se concentre na necessidade de processar condições excepcionais.
 
 # Dica de portabilidade 
 
