@@ -37,6 +37,12 @@ fase de conclusão que calcula e insere os resultados finais.
 
 5.1 - “Manter a coisa simples” é um bom conselho para a maior parte do código que você escreverá.
 
+5.2 - Alguns programadores acham que break e continue violam a programação estruturada. Como os mesmos efeitos são alcançáveis
+com as técnicas de programação estruturada, esses programadores não utilizam break ou continue.
+
+5.3 - Há uma tensão entre alcançar engenharia de software de qualidade e alcançar o software de melhor desempenho. Às vezes, um desses objetivos é alcançado à custa do outro. Para todas as situações, exceto as de desempenho muito alto, aplique a seguinte regra
+geral: primeiro, faça seu código simples e correto; então, torne-o rápido e pequeno, mas apenas se necessário.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
@@ -131,6 +137,8 @@ variável de controle depois do corpo de for é um erro de compilação.
 5.6 - Não use operadores de igualdade (!= ou ==) em uma condição de continuação de loop se a variável de controle do loop é incrementada ou decrementada por mais que 1. Por exemplo, considere o cabeçalho da instrução for (int counter = 1; counter != 10; counter += 2). O teste de continuação de loop counter!= 10 nunca torna-se falso (resultando em um loop infinito) porque counter é incrementado por 2 após cada iteração.
 
 5.7 - Esquecer uma instrução break quando esta for necessária em um switch é um erro de lógica.
+
+5.8 - Em expressões que utilizam o operador &&, uma condição — que chamaremos de condição dependente — pode exigir que outra condição seja verdadeira para que a avaliação da condição dependente tenha significado. Nesse caso, a condição dependente deve ser colocada após o operador && para evitar erros. Considere a expressão (i != 0) && (10 / i == 2). A condição dependente (10 / i == 2) deve aparecer após o operador && para evitar a possibilidade de divisão por zero.
 
 # Boa prática de programação 
 
@@ -263,6 +271,10 @@ também fornece a classe java.math.BigDecimal para esse propósito.
 5.7 - Em uma instrução switch, certifique-se de testar todos os valores possíveis da expressão de controle.
 
 5.8 - Forneça um case default nas instruções switch. Isso faz com que você se concentre na necessidade de processar condições excepcionais.
+
+5.9 - Para clareza, evite expressões com efeitos colaterais (como atribuições) em condições. Elas podem tornar o código mais difícil de entender e levar a erros de lógica sutis.
+
+5.10 - Expressões de atribuição (=) geralmente não devem ser utilizadas em condições. Cada condição deve resultar em um valor boolean; do contrário, ocorrerá um erro de compilação. Em uma condição, uma atribuição só irá compilar se uma expressão boolean for atribuída a uma variável boolean.
 
 # Dica de portabilidade 
 
