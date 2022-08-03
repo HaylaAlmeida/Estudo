@@ -121,6 +121,14 @@ um erro de sintaxe. Por exemplo, escrever ++(x + 1) é um erro de sintaxe, porqu
 5.1 - Uma vez que valores de ponto flutuante podem ser aproximados, controlar loops com variáveis de ponto flutuante pode resultar em
 valores de contador imprecisos e testes de terminação imprecisos.
 
+5.2 - Utilizar um operador relacional incorreto ou um valor final incorreto de um contador de loop na condição de continuação do loop
+de uma instrução de repetição pode causar um erro fora-por-um.
+
+5.3 - Quando uma variável de controle de uma instrução for for declarada na seção de inicialização do cabeçalho de for, utilizar a
+variável de controle depois do corpo de for é um erro de compilação.
+
+5.4 - Colocar um ponto e vírgula imediatamente à direita do parêntese direito de um cabeçalho for torna o corpo desse for uma instrução vazia. Normalmente, esse é um erro de lógica.
+
 5.5 - Utilizar um operador relacional incorreto na condição de continuação de um loop que conta para baixo (por exemplo, utilizar i <= 1 em vez de i >= 1 em uma contagem de loop para baixo até 1) normalmente é um erro de lógica.
 
 5.6 - Não use operadores de igualdade (!= ou ==) em uma condição de continuação de loop se a variável de controle do loop é incrementada ou decrementada por mais que 1. Por exemplo, considere o cabeçalho da instrução for (int counter = 1; counter != 10; counter += 2). O teste de continuação de loop counter!= 10 nunca torna-se falso (resultando em um loop infinito) porque counter é incrementado por 2 após cada iteração.
@@ -234,6 +242,15 @@ uma mensagem de erro) em vez de permitir que o erro ocorra.
 declarações, ele exige que variáveis locais sejam inicializadas antes de seus valores serem usados em uma expressão.
 
 5.1 - Utilize números inteiros para controlar loops de contagem.
+
+5.2 - Usar o valor final e o operador <= na condição de um loop ajuda a evitar erros fora-por-um. Para um loop que imprime os valores de 1 a 10, a condição de continuação do loop deve ser counter <= 10 em vez de counter < 10 (que causa um erro fora-por-um) ou counter < 11 (que é correto). Muitos programadores preferem a chamada contagem baseada em zero, em que se conta 10 vezes, counter seria inicializado como zero e o teste de continuação do loop seria counter < 10.
+
+5.3 - Inteiros podem estourar, causando erros de lógica. Uma variável de controle de loop também pode
+estourar. Escreva suas condições de loop com cuidado para evitar isso.
+
+5.4 - Os loops infinitos ocorrem quando a condição de continuação do loop em uma instrução de repetição nunca se torna false. Para evitar essa situação em um loop controlado por contador, assegure que a variável de controle seja modificada durante cada iteração do loop a fim de que a condição de continuação do loop acabe por se tornar false. Em um loop controlado por sentinela, certifique-se de que o valor da sentinela é capaz de ser inserido.
+
+5.5 - Embora o valor da variável de controle possa ser alterado no corpo de um loop for, evite fazê-lo assim porque essa prática pode levar a erros sutis.
 
 5.6 - Não utilizar variáveis de tipo double (ou float) para realizar cálculos monetários precisos. A imprecisão dos números de ponto flutuante pode resultar em erros. Nos exercícios, você aprenderá a usar inteiros para realizar cálculos monetários precisos — o Java
 também fornece a classe java.math.BigDecimal para esse propósito.
