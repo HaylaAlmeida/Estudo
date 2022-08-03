@@ -37,12 +37,18 @@ fase de conclusão que calcula e insere os resultados finais.
 
 5.1 - “Manter a coisa simples” é um bom conselho para a maior parte do código que você escreverá.
 
+5.2 - Sempre inclua chaves em uma instrução do…while. Isso ajuda a eliminar ambiguidade entre a instrução while e uma instrução
+do...while que contém apenas uma instrução.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
 versões pode melhorar o desempenho de programa, porque eles são cuidadosamente escritos para executar de
 modo eficiente. Isso também diminui o tempo de desenvolvimento de
 programa.
+
+5.1 - Em loops, evite cálculos para os quais o resultado nunca muda — esses cálculos em geral devem ser colocados antes do loop. Muitos
+compiladores de otimização sofisticados de hoje colocarão esses cálculos fora de loops no código compilado.
 
 # Erro comum de programação
 
@@ -174,6 +180,8 @@ nomes de identificadores.
 
 4.5 Consulte a tabela de precedência e associatividade de operadores (Anexo A) ao escrever expressões que contêm muitos operadores. Confirme se os operadores na expressão são realizados na ordem em que você espera. Se não tiver certeza da ordem de avaliação em uma expressão complexa, divida a expressão em instruções menores ou use parênteses para forçar a ordem da avaliação, exatamente como faria em uma expressão algébrica. Certifique-se de observar que alguns operadores como atribuição (=) se associam da direita para a esquerda, em vez de da esquerda para a direita.
 
+5.1 - Para melhor legibilidade, limite o tamanho de cabeçalhos da instrução de controle a uma única linha se possível.
+
 # Dica de prevenção de erro 
 
 2.1 - À medida que você escreve novos programas ou modifica aqueles existentes, mantenha seus comentários 
@@ -223,6 +231,11 @@ declarações, ele exige que variáveis locais sejam inicializadas antes de seus
 
 5.1 - Utilize números inteiros para controlar loops de contagem.
 
+5.6 - Não utilizar variáveis de tipo double (ou float) para realizar cálculos monetários precisos. A imprecisão dos números de ponto flutuante pode resultar em erros. Nos exercícios, você aprenderá a usar inteiros para realizar cálculos monetários precisos — o Java
+também fornece a classe java.math.BigDecimal para esse propósito.
+
 # Dica de portabilidade 
 
 4.1 - Os tipos primitivos em Java são portáveis entre todas as plataformas de computador que suportam Java.
+
+
