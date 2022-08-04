@@ -46,6 +46,18 @@ geral: primeiro, faça seu código simples e correto; então, torne-o rápido e 
 6.1 - Familiarize-se com a rica coleção de classes e métodos fornecidos pela Java API (http://docs.oracle.com/javase/7/docs/ api/). Não reinvente a roda. Quando possível, reutilize as classes e métodos na Java API. Isso reduz o
 tempo de desenvolvimento de programas e evita a introdução de erros.
 
+6.2 - Para promover a capacidade de reutilização de software, todos os métodos devem estar limitados à realização de uma única tarefa
+bem definida, e o nome do método deve expressar essa tarefa efetivamente.
+
+6.3 - Se não puder escolher um nome conciso que expresse a tarefa de um método, seu método talvez tente realizar tarefas em demasia.
+Divida esse método em vários menores.
+
+6.4 - A classe Math faz parte do pacote java.lang, que é implicitamente importado pelo compilador, assim não é necessário importar a classe Math para utilizar seus métodos.
+
+6.5 - Métodos podem retornar no máximo um valor, mas o valor retornado poderia ser uma referência a um objeto que contém muitos valores.
+
+6.6 - Variáveis devem ser declaradas como campos da classe somente se forem utilizadas em mais de um método da classe ou se o programa deve salvar seus valores entre chamadas aos métodos da classe.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
@@ -142,6 +154,19 @@ variável de controle depois do corpo de for é um erro de compilação.
 5.7 - Esquecer uma instrução break quando esta for necessária em um switch é um erro de lógica.
 
 5.8 - Em expressões que utilizam o operador &&, uma condição — que chamaremos de condição dependente — pode exigir que outra condição seja verdadeira para que a avaliação da condição dependente tenha significado. Nesse caso, a condição dependente deve ser colocada após o operador && para evitar erros. Considere a expressão (i != 0) && (10 / i == 2). A condição dependente (10 / i == 2) deve aparecer após o operador && para evitar a possibilidade de divisão por zero.
+
+6.1 - Declarar parâmetros de método do mesmo tipo como float x, y em vez de float x, float y é um erro de sintaxe — um tipo é
+requerido para cada parâmetro na lista de parâmetros.
+
+6.2 - É um erro de sintaxe dividir um literal de String em linhas. Se necessário, você pode dividir uma String em unidades menores e utilizar concatenação para formar a String desejada.
+
+6.3 - Confundir o operador + utilizado para concatenação de string com o operador + utilizado para adição pode levar a resultados estranhos. O Java avalia os operandos de um operador da esquerda para a direita. Por exemplo, suponha que a variável inteira y tem o valor 5, a expressão "y + 2 = " + y + 2 resulta na string "y + 2 = 52", não em "y + 2 = 7", porque o primeiro valor de y (5) é concatenado para a string "y + 2 = ", em seguida o valor 2 é concatenado para a nova e maior string "y + 2 = 5". A expressão "y + 2 = " + (y + 2) produz o resultado desejado "y + 2 = 7".
+
+6.4 - Declarar um método fora do corpo de uma declaração de classe ou dentro do corpo de um outro método é um erro de sintaxe.
+
+6.5 - Redeclarar um parâmetro como uma variável local no corpo do método é um erro de compilação.
+
+6.6 - Esquecer de retornar um valor em um método que deve retornar um valor é um erro de compilação. Se um tipo de retorno além de void for especificado, o método deve conter uma instrução return, que retorna um valor consistente com o tipo de retorno do método. Retornar um valor de um método cujo tipo de retorno foi declarado como void é um erro de compilação.
 
 # Boa prática de programação 
 
@@ -278,6 +303,11 @@ também fornece a classe java.math.BigDecimal para esse propósito.
 5.9 - Para clareza, evite expressões com efeitos colaterais (como atribuições) em condições. Elas podem tornar o código mais difícil de entender e levar a erros de lógica sutis.
 
 5.10 - Expressões de atribuição (=) geralmente não devem ser utilizadas em condições. Cada condição deve resultar em um valor boolean; do contrário, ocorrerá um erro de compilação. Em uma condição, uma atribuição só irá compilar se uma expressão boolean for atribuída a uma variável boolean.
+
+6.1 - Um método que realiza uma única tarefa é mais fácil de testar e depurar do que aquele que realiza muitas tarefas.
+
+6.2 - Ao chamar um método que retorna um valor que indica se o método realizou sua tarefa com sucesso, certifique-se de verificar o
+valor de retorno desse método e, se esse método não foi bem-sucedido, lide com a questão de forma adequada.
 
 # Dica de portabilidade 
 
