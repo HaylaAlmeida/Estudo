@@ -92,10 +92,6 @@ instrução break ou o fim do switch seja encontrado.
 Se não ocorrer nenhuma correspondência entre o valor da expressão controladora e um rótulo case, o caso default opcional é executado. Se não ocorrer nenhuma 
 correspondência e o switch não contiver um caso default, o controle de programa simplesmente continua com a primeira instrução depois do switch.
 
-# Estudo de caso da classe AutoPolicy: Strings em instruções switch 
-
-Strings podem ser usadas na expressão de controle da instrução switch e rótulos case.
-
 # Instruções break e continue 
 
 A instrução break, quando executada em um while, for, do…while ou switch, ocasiona a saída imediata dessa instrução. 
