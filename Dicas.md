@@ -43,6 +43,9 @@ com as técnicas de programação estruturada, esses programadores não utilizam
 5.3 - Há uma tensão entre alcançar engenharia de software de qualidade e alcançar o software de melhor desempenho. Às vezes, um desses objetivos é alcançado à custa do outro. Para todas as situações, exceto as de desempenho muito alto, aplique a seguinte regra
 geral: primeiro, faça seu código simples e correto; então, torne-o rápido e pequeno, mas apenas se necessário.
 
+6.1 - Familiarize-se com a rica coleção de classes e métodos fornecidos pela Java API (http://docs.oracle.com/javase/7/docs/ api/). Não reinvente a roda. Quando possível, reutilize as classes e métodos na Java API. Isso reduz o
+tempo de desenvolvimento de programas e evita a introdução de erros.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
