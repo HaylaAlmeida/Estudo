@@ -179,34 +179,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        String str = "";
+        for (int i = 0; i < 5; i++){
+            int num = input.nextInt();
 
-        int num = input.nextInt();
-        int num2 = input.nextInt();
-        int num3 = input.nextInt();
-        int num4 = input.nextInt();
-        int num5 = input.nextInt();
-
-        for (int j = 0; j < num; j++){
-            System.out.printf("*");
+            for (int j = 0; j < num; j++){
+                str += "*";
+            }
+            str += "\n";
         }
-        System.out.println();
-        for (int j = 0; j < num2; j++){
-            System.out.printf("*");
-        }
-        System.out.println();
-        for (int j = 0; j < num3; j++){
-            System.out.printf("*");
-        }
-        System.out.println();
-        for (int j = 0; j < num4; j++){
-            System.out.printf("*");
-        }
-        System.out.println();
-        for (int j = 0; j < num5; j++){
-            System.out.printf("*");
-        }
-        System.out.println();
-
+        System.out.printf("%s", str);
     }
 }
 ~~~
