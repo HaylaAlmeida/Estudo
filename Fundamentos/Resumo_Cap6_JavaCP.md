@@ -90,3 +90,35 @@ utilize um operador de coerção para forçar explicitamente que a conversão oc
 Objetos da classe SecureRandom (pacote java.security) podem produzir valores aleatórios não determinísticos.
 
 O método nextInt SecureRandom gera um valor aleatório.
+
+A classe SecureRandom fornece uma outra versão do método nextInt que recebe um argumento int e retorna um valor a partir de 0, mas sem incluí-lo, até o valor do argumento.
+
+Números aleatórios em um intervalo podem ser gerados com int number = valorDeDeslocamento + randomNumbers.nextInt(fatorDeEscalonamento);
+onde valorDeDeslocamento especifica o primeiro número no intervalo desejado de inteiros consecutivos e fatorDeEscalonamento especifica quantos números estão no intervalo.
+
+Os números aleatórios podem ser escolhidos a partir de intervalos de inteiro não consecutivos, como em int number = valorDeDeslocamento + diferençaEntreValores * randomNumbers.nextInt(fatorDeEscalonamento); onde valorDeDeslocamento especifica o primeiro número no intervalo de valores, diferençaEntreValores representa a diferença entre números consecutivos na sequência e fatorDeEscalonamento especifica quantos números estão no intervalo.
+
+# Estudo de caso: um jogo de azar; apresentando tipos enum 
+
+Um tipo enum é introduzido pela palavra-chave enum e um nome de tipo. Como com qualquer classe, as chaves ({ e }) delimitam o corpo de uma declaração enum. Entre as chaves há uma lista de constantes enum, cada uma representando um valor único separado por vírgula. Os identificadores em uma enum devem ser únicos. Pode-se atribuir variáveis de um tipo enum somente a constantes do tipo enum.
+
+Constantes também podem ser declaradas como variáveis private static final. Essas constantes, por convenção, são declaradas com todas as letras maiúsculas fazendo com que elas se destaquem no programa.
+
+# Escopo das declarações 
+
+O escopo é a parte do programa em que uma entidade, como uma variável ou um método, pode ser referida pelo seu nome. Diz-se que essa entidade está “no escopo” para essa parte do programa.
+
+O escopo de uma declaração de parâmetro é o corpo do método em que a declaração aparece. • O escopo de uma declaração de variável local é do ponto em que a declaração aparece até o final desse bloco. 
+
+O escopo de uma declaração de variável local que aparece na seção de inicialização do cabeçalho de uma instrução for é o corpo da instrução for e as outras expressões no cabeçalho.
+
+O escopo de um método ou campo de uma classe é o corpo inteiro da classe. Isso permite que os métodos da classe utilizem nomes simples para chamar os outros métodos da classe e acessem os campos da classe.
+
+Qualquer bloco pode conter declarações de variável. Se uma variável local ou um parâmetro em um método tiver o mesmo nome de um campo, este permanece sombreado até que o bloco termine a execução.
+
+# Sobrecarga de método 
+
+O Java permite métodos sobrecarregados em uma classe, desde que os métodos tenham diferentes conjuntos de parâmetros (determinados pelo número, ordem e tipo de parâmetros).
+
+Métodos sobrecarregados são distinguidos por suas assinaturas — combinações dos nomes e número, tipos e ordem dos parâmetros dos méto-
+dos, mas não pelos tipos de retorno.
