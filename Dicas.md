@@ -170,6 +170,11 @@ requerido para cada parâmetro na lista de parâmetros.
 
 6.7 - Converter um valor de tipo primitivo em um outro tipo primitivo pode alterar o valor se o novo tipo não for uma promoção válida. Por exemplo, converter um valor de ponto flutuante em um valor inteiro pode introduzir erros de truncamento (perda da parte fracionária) no resultado.
 
+7.1 - Um índice deve ser um valor int ou um valor de um tipo que pode ser promovido para int — ou seja, byte, short ou char, mas
+não long; caso contrário, ocorrerá um erro de compilação.
+
+
+
 # Boa prática de programação 
 
 2.1 - Algumas organizações exigem que todo programa comece com um comentário que informa o objetivo e o autor 
