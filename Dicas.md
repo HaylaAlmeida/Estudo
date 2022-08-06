@@ -188,6 +188,8 @@ e b e c variáveis int individuais, então essa declaração é incorreta — a 
 7.5 - Inserir reticências indicando uma lista de argumentos de comprimento variável no meio de uma lista de parâmetros é um erro de
 sintaxe. As reticências só podem ser colocadas no fim da lista de parâmetros.
 
+7.6 - Passar um array não classificado para binarySearch é um erro de lógica — o valor retornado é indefinido.
+
 # Boa prática de programação 
 
 2.1 - Algumas organizações exigem que todo programa comece com um comentário que informa o objetivo e o autor 
@@ -260,7 +262,7 @@ comentário que descreva a variável sendo declarada.
 
 7.2 - Variáveis constantes também são chamadas constantes nomeadas. Frequentemente, elas tornam os programas mais legíveis que os programas que utilizam valores literais (por exemplo, 10) — uma constante identificada como ARRAY_LENGTH indica claramente seu propósito, enquanto um valor literal poderia ter diferentes significados com base em seu contexto.
 
-7.3 - Cada palavra das constantes nomeadas que contêm múltiplas palavras deve ser separada da seguinte por um sublinhado (_ ) como
+7.3 - Cada palavra das constantes nomeadas que contêm múltiplas palavras deve ser separada da seguinte por um sublinhado (_) como
 em ARRAY_LENGTH.
 
 # Dica de prevenção de erro 
@@ -341,6 +343,9 @@ valor de retorno desse método e, se esse método não foi bem-sucedido, lide co
 menor que o comprimento do array. Isso evitaria ArrayIndexOutOfBoundsExceptions se seu programa estiver correto.
 
 7.2 - A instrução for aprimorada simplifica o código iterando por um conjunto tornando o código mais legível e eliminando várias possibilidades de erro, como especificação inadequada do valor inicial da variável de controle, o teste de continuação de loop e a expressão de incremento.
+
+7.3 - Ao comparar o conteúdo do array, sempre use Arrays.equals(array1, array2), que compara o conteúdo dos dois arrays, em vez
+de array1.equals(array2), que compara se array1 e array2 se referem ao mesmo objeto array.
 
 # Dica de portabilidade 
 
