@@ -58,6 +58,8 @@ Divida esse método em vários menores.
 
 6.6 - Variáveis devem ser declaradas como campos da classe somente se forem utilizadas em mais de um método da classe ou se o programa deve salvar seus valores entre chamadas aos métodos da classe.
 
+7.1 - É provável que sistemas na indústria que foram submetidos a testes extensivos ainda contenham erros. Nossa preferência por sistemas de produção robustos é capturar e tratar exceções em tempo de execução, como ArrayIndexOutOfBoundsExceptions, para garantir que um sistema continue funcionando ou falhe de maneira “elegante” e informar os desenvolvedores do sistema sobre o problema.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
@@ -67,6 +69,9 @@ programa.
 
 5.1 - Em loops, evite cálculos para os quais o resultado nunca muda — esses cálculos em geral devem ser colocados antes do loop. Muitos
 compiladores de otimização sofisticados de hoje colocarão esses cálculos fora de loops no código compilado.
+
+7.1 - Passar referências para arrays, em vez dos próprios objetos array, faz sentido por razões de desempenho. Como tudo em Java é passado por valor, se objetos array foram passados, uma cópia de cada elemento seria passada. Para arrays grandes, isso seria perda
+de tempo e consumiria armazenamento considerável para as cópias dos elementos.
 
 # Erro comum de programação
 
@@ -173,7 +178,15 @@ requerido para cada parâmetro na lista de parâmetros.
 7.1 - Um índice deve ser um valor int ou um valor de um tipo que pode ser promovido para int — ou seja, byte, short ou char, mas
 não long; caso contrário, ocorrerá um erro de compilação.
 
+7.2 - Em uma declaração de array, especificar o número de elementos entre os colchetes da declaração (por exemplo, int[12] c;) é um erro de sintaxe.
 
+7.3 - Declarar múltiplas variáveis de array em uma única declaração pode levar a erros sutis. Considere a declaração int[] a, b, c;. Se a, b e c devem ser declarados como variáveis de array, então essa declaração é correta — colocar os colchetes logo depois do tipo indica que todos os identificadores na declaração são variáveis de array. Entretanto, se apenas a destina-se a ser uma variável de array,
+e b e c variáveis int individuais, então essa declaração é incorreta — a declaração int a[], b, c; alcançaria o resultado desejado.
+
+7.4 - Atribuir um valor a uma variável final depois de ela ter sido inicializada é um erro de compilação. Da mesma forma, a tentativa de acessar o valor de uma variável final antes de ela ser inicializada resulta em um erro de compilação como “variable nomeDaVariável might not have been initialized”.
+
+7.5 - Inserir reticências indicando uma lista de argumentos de comprimento variável no meio de uma lista de parâmetros é um erro de
+sintaxe. As reticências só podem ser colocadas no fim da lista de parâmetros.
 
 # Boa prática de programação 
 
@@ -241,6 +254,14 @@ do...while que contém apenas uma instrução.
 
 5.3 - Embora cada case e o caso default em uma switch possam ocorrer em qualquer ordem, coloque o caso default por último.
 Quando o caso default é listado por último, o break para esse caso não é necessário.
+
+7.1 - Para legibilidade, declare apenas uma variável por declaração. Mantenha cada declaração em uma linha separada e inclua um
+comentário que descreva a variável sendo declarada.
+
+7.2 - Variáveis constantes também são chamadas constantes nomeadas. Frequentemente, elas tornam os programas mais legíveis que os programas que utilizam valores literais (por exemplo, 10) — uma constante identificada como ARRAY_LENGTH indica claramente seu propósito, enquanto um valor literal poderia ter diferentes significados com base em seu contexto.
+
+7.3 - Cada palavra das constantes nomeadas que contêm múltiplas palavras deve ser separada da seguinte por um sublinhado (_ ) como
+em ARRAY_LENGTH.
 
 # Dica de prevenção de erro 
 
@@ -315,6 +336,11 @@ também fornece a classe java.math.BigDecimal para esse propósito.
 
 6.2 - Ao chamar um método que retorna um valor que indica se o método realizou sua tarefa com sucesso, certifique-se de verificar o
 valor de retorno desse método e, se esse método não foi bem-sucedido, lide com a questão de forma adequada.
+
+7.1 - Ao escrever o código para acessar um elemento do array, certifique-se de que o índice de array permanece maior ou igual a 0 e
+menor que o comprimento do array. Isso evitaria ArrayIndexOutOfBoundsExceptions se seu programa estiver correto.
+
+7.2 - A instrução for aprimorada simplifica o código iterando por um conjunto tornando o código mais legível e eliminando várias possibilidades de erro, como especificação inadequada do valor inicial da variável de controle, o teste de continuação de loop e a expressão de incremento.
 
 # Dica de portabilidade 
 
