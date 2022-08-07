@@ -109,12 +109,155 @@ public class Main  {
 6.18 (Exibindo um quadrado de asteriscos) Escreva um método squareOfAsterisks que exibe um quadrado sólido (o mesmo número de linhas e colunas) de asteriscos cujo 
 lado é especificado no parâmetro inteiro side. Por exemplo, se side for 4, o método deverá exibir
 
+![image](https://user-images.githubusercontent.com/80348569/183265008-85cbdd30-9294-41d3-ad55-d3edb1006253.png)
+
+Incorpore esse método a um aplicativo que lê um valor inteiro para side a partir da entrada fornecida pelo usuário e gera saída dos asteriscos com o método squareOfAsterisks.
+
+6.19 (Exibindo um quadrado de qualquer caractere) Modifique o método criado no Exercício 6.18 para receber um segundo parâmetro do tipo char chamado fillCharacter. Forme o quadrado utilizando o char fornecido como um argumento. Portanto, se side for 5
+e fillCharacter for #, o método deve exibir
+
+![image](https://user-images.githubusercontent.com/80348569/183266021-b7fcfcf2-b26e-4cee-bff1-89182fa595fc.png)
+
+Utilize a seguinte instrução (em que input é um objeto Scanner) para ler um caractere do usuário no teclado: 
+
+char fill = input.next().charAt(0);
+~~~
+import java.util.Scanner;
+
+public class Main  {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int side= input.nextInt();
+        char fill = input.next().charAt(0);
+        squareOfAsterisks(side, fill);
+
+    }
+    public static void squareOfAsterisks(int side, char fillCharacter){
+        for (int i = 0; i < side; i++){
+            for (int j = 0; j < side; j++){
+                System.out.printf("%s", fillCharacter);
+            }
+            System.out.println();
+        }
+    }
+}
+~~~
+6.20 (Área de círculo) Escreva um aplicativo que solicita ao usuário o raio de um círculo e utiliza um método chamado circleArea para calcular a área do círculo.
+~~~
+
+import java.util.Scanner;
+
+public class Main  {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        double raio = input.nextDouble();
+        System.out.printf("Area: %f%n", circleArea(raio));
 
 
+    }
+    public static double circleArea(double raio){
+        double area = Math.PI * Math.pow(raio, 2);
+        return area;
+    }
+}
+~~~
+
+6.21 (Separando dígitos) Escreva métodos que realizam cada uma das seguintes tarefas: 
+~~~
+a) Calcule a parte inteiro do quociente quando o inteiro a é dividido pelo inteiro b. 
+b) Calcule o resto inteiro quando o inteiro a é dividido por inteiro b.
+c) Utilize métodos desenvolvidos nas partes (a) e (b) para escrever um método displayDigits que recebe um inteiro 
+entre 1 e 99999 e o exibe como uma sequência de dígitos, separando cada par de dígitos por dois espaços. 
+~~~
+Por exemplo, o inteiro 4562 deve aparecer como
+
+4 5 6 2
+
+Incorpore os métodos em um aplicativo que insere um número inteiro e chama displayDigits passando para o método o número
+inteiro inserido. Exiba os resultados.
+
+~~~
+import java.util.Scanner;
+
+public class Main  {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int num = input.nextInt();
+        displayDigits(num);
 
 
+    }
+    public static void displayDigits(int num){
+        int cont = 0;
+        int aux = num;
+        int resto = num;
+        String str = "";
+        while (aux > 0){
+            aux = aux/10;
+            cont++;
+        }
+        for (int i = cont - 1; i >= 0; i--){
+            aux = (int) (resto / Math.pow(10, i));
+            resto = (int) (resto % Math.pow(10, i));
+            str += aux + "  ";
+
+        }
+        System.out.printf("%s", str);
+    }
+}
+~~~
+
+6.22 (Conversões de temperatura) Implemente os seguintes métodos inteiros: 
+
+a) O método celsius retorna o equivalente em Celsius de uma temperatura em Fahrenheit utilizando o cálculo 
+
+celsius = 5.0 / 9.0 * (fahrenheit - 32);
+
+b) O método fahrenheit retorna o equivalente em Fahrenheit de uma temperatura em Celsius utilizando o cálculo 
+
+fahrenheit = 9.0 / 5.0 * celsius + 32;
+
+c) Utilize os métodos nas partes (a) e (b) para escrever um aplicativo que permite ao usuário inserir uma temperatura em Fahrenheit e
+exibir o equivalente em Celsius ou inserir uma temperatura em Celsius e exibir o equivalente em Fahrenheit.
+~~~
+import java.util.Scanner;
+
+public class Main  {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int num = input.nextInt();
+        double temp = input.nextDouble();
+        temperature(num, temp);
 
 
+    }
+    public static void temperature(int num, double temp){
+        double celsius = temp;
+        double fahrenheit = temp;
+        switch (num){
+            case 1:
+                celsius = (fahrenheit - 32) * 5/9;
+                System.out.printf("Celsius: %.2fº%n", celsius);
+                break;
+            case 2:
+                fahrenheit = celsius * 9/5 + 32;
+                System.out.printf("Fahrenheit: %.2fº%n", fahrenheit);
+                break;
+            default:
+                System.out.println("Número inválido inserido");
+                break;
+        }
+    }
+}
+~~~
 
 
 
