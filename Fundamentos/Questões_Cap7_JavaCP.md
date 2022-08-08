@@ -132,13 +132,59 @@ public class InitArray {
 
 7.16 (Usando a instrução for aprimorada) Escreva um aplicativo que usa uma instrução for aprimorada para somar os valores double passados pelos argumentos de linha de comando. [Dica: utilize o método static parseDouble da classe Double para converter uma
 String em um valor double.]
+~~~
+public class InitArray {
+    public static void main(String[] args) {
 
+        double total = 0;
+        int arrayLenght = Integer.parseInt(args[0]);
+        double[] array = new double[arrayLenght];
 
+        for (int i = 0; i < arrayLenght; i++) {
+            array[i] = Double.parseDouble(args[i+1]);
+        }
+        for (double d : array) {
+            total += d;
+        }
+        System.out.printf("Total: %f%n", total);
+    }
+}
+~~~
 
+7.17 (Jogo de dados) Escreva um aplicativo para simular o lançamento de dois dados. O aplicativo deve utilizar um objeto de classe Random, uma vez para lançar o primeiro dado e novamente para lançar o segundo dado. A soma dos dois valores deve então ser calculada. Cada dado pode mostrar um valor inteiro de 1 a 6, portanto a soma dos valores irá variar de 2 a 12, com 7 sendo a soma mais frequente e 2 e 12, as somas menos frequentes. A Figura 7.28 mostra as 36 possíveis combinações de dois dados. Seu aplicativo deve lançar o dado 36.000.000 vezes. Utilize um array unidimensional para contar o número de vezes que cada possível soma aparece. Exiba os resultados em formato tabular.
+~~~
+import java.util.Random;
 
+public class Main  {
 
+    public static void main(String[] args) {
+        int[] frequencia = new int[13];
+        int dado1;
+        int dado2;
+        int soma = 0;
+        Random lançamento = new Random();
 
+        for (int i = 0; i < 360000; i++){
+            dado1 = 1 + lançamento.nextInt(6);
+            dado2 = 1 + lançamento.nextInt(6);
+            soma = dado1 + dado2;
+            ++frequencia[soma];
+        }
+        for (int i = 2; i < frequencia.length; i++){
+            System.out.printf("%d: %d%n", i, frequencia[i]);
+        }
+    }
+}
+~~~
 
+7.18 (Jogo de dados Craps) Escreva um aplicativo que executa 1.000.000 de partidas do jogo de dados craps (Figura 6.8) e responda às seguintes perguntas: 
+~~~
+a) Quantos jogos são ganhos na primeira rolagem, segunda rolagem, …, vigésima rolagem e depois da vigésima rolagem? 
+b) Quantos jogos são perdidos na primeira rolagem, segunda rolagem, …, vigésima rolagem e depois da vigésima rolagem? 
+c) Quais são as chances de ganhar no jogo de dados? [Observação: você deve descobrir que o craps é um dos jogos mais comuns de cassino. O que você supõe que isso significa?]
+d) Qual é a duração média de um jogo de dados craps?
+e) As chances de ganhar aumentam com a duração do jogo?
+~~~
 
 
 
