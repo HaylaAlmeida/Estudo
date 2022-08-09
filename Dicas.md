@@ -81,6 +81,19 @@ final.
 8.7 - Se apropriado, forneça métodos public para alterar e recuperar os valores de variáveis de instância private. Essa arquitetura
 ajuda a ocultar a implementação de uma classe dos seus clientes, o que aprimora a modificabilidade do programa.
 
+8.8 - Muitas classes Java API (por exemplo, a classe Scanner e classes que leem arquivos ou gravam arquivos em disco) fornecem o método close ou dispose, que os programadores podem chamar para liberar os recursos quando eles não são mais necessários em um
+programa.
+
+8.9 - Utilize uma variável static quando todos os objetos de uma classe precisarem utilizar a mesma cópia da variável.
+
+8.10 - Variáveis e métodos de classe static existem e podem ser utilizados, mesmo se nenhum objeto dessa classe tiver sido instanciado.
+
+8.11 - Declarar uma variável de instância como final ajuda a impor o princípio do menor privilégio. Se uma variável de instância não
+deve ser modificada, declare-a como final para evitar modificação.
+
+8.12 - Um campo final também deve ser declarado static se ele for inicializado na sua declaração para um valor que é o mesmo para
+todos os objetos da classe. Após essa inicialização, seu valor nunca pode mudar.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
@@ -225,6 +238,15 @@ argumentos para o construtor da classe.
 
 8.4 - Em uma declaração enum, é um erro de sintaxe declarar constantes enum após construtores, campos e métodos do tipo enum.
 
+8.5 - Um erro de compilação ocorre se um método static chamar um método de instância na mesma classe utilizando apenas o nome do método. De maneira semelhante, um erro de compilação ocorre se um método static tentar acessar uma variável de instância na mesma classe utilizando apenas o nome da variável.
+
+8.6 - Referenciar this em um método static é um erro de compilação.
+
+8.7 - Um erro de compilação ocorre se um programa tentar importar métodos static que têm a mesma assinatura ou campos static
+que têm o mesmo nome proveniente de duas ou mais classes.
+
+8.8 - Tentar modificar uma variável de instância final depois que é ela inicializada é um erro de compilação.
+
 # Boa prática de programação 
 
 2.1 - Algumas organizações exigem que todo programa comece com um comentário que informa o objetivo e o autor 
@@ -299,6 +321,9 @@ comentário que descreva a variável sendo declarada.
 
 7.3 - Cada palavra das constantes nomeadas que contêm múltiplas palavras deve ser separada da seguinte por um sublinhado (_) como
 em ARRAY_LENGTH.
+
+8.1 - Invoque cada método static utilizando o nome de classe e um ponto (.) para enfatizar que o método sendo chamado é um método
+static.
 
 # Dica de prevenção de erro 
 
@@ -390,8 +415,10 @@ não serão chamados quando um objeto da classe for instanciado.
 
 8.3 - Não forneça constantes public static final se é provável que os valores das constantes mudem nas versões futuras do seu software.
 
-8.4 - Usar métodos set e get ajuda a criar classes que são mais fáceis de depurar e manter. Se apenas um método realizar uma tarefa particular, como configurar uma instância de variável em um objeto, é mais fácil depurar e manter a classe. Se a variável de instância não for configurada corretamente, o código que na verdade modifica a variável de instância estará localizado em um único
-método set. Seus esforços de depuração podem focalizar esse único método.
+8.4 - Usar métodos set e get ajuda a criar classes que são mais fáceis de depurar e manter. Se apenas um método realizar uma tarefa particular, como configurar uma instância de variável em um objeto, é mais fácil depurar e manter a classe. Se a variável de instância não for configurada corretamente, o código que na verdade modifica a variável de instância estará localizado em um único método set. Seus esforços de depuração podem focalizar esse único método.
+
+8.5 - Tentativas de modificar uma variável de instância final são capturadas em tempo de compilação em vez de causarem erros em tempo de execução. Sempre é preferível retirar bugs em tempo de compilação, se possível, em vez de permitir que passem para o
+tempo de execução (onde experiências descobriram que o reparo é frequentemente muito mais caro).
 
 # Dica de portabilidade 
 
