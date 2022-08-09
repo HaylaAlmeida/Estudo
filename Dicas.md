@@ -71,6 +71,16 @@ da classe.
 8.4 - As interfaces mudam com menos frequência que as implementações. Quando uma implementação muda, o código dependente de implementação deve alterar correspondentemente. Ocultar a implementação reduz a possibilidade de que outras partes do progra-
 ma irão se tornar dependentes dos detalhes sobre a implementação da classe.
 
+8.5 - Quando um objeto de uma classe contém uma referência a um outro objeto da mesma classe, o primeiro objeto pode acessar todos
+os dados e métodos do segundo objeto (incluindo aqueles que são private).
+
+8.6 - Classes nunca devem ter dados public não constantes, mas declarar dados public static final permite disponibilizar as cons-
+tantes para os clientes da sua classe. Por exemplo, a classe Math oferece as constantes final Math.E e Math.PI public static
+final.
+
+8.7 - Se apropriado, forneça métodos public para alterar e recuperar os valores de variáveis de instância private. Essa arquitetura
+ajuda a ocultar a implementação de uma classe dos seus clientes, o que aprimora a modificabilidade do programa.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
@@ -83,6 +93,9 @@ compiladores de otimização sofisticados de hoje colocarão esses cálculos for
 
 7.1 - Passar referências para arrays, em vez dos próprios objetos array, faz sentido por razões de desempenho. Como tudo em Java é passado por valor, se objetos array foram passados, uma cópia de cada elemento seria passada. Para arrays grandes, isso seria perda
 de tempo e consumiria armazenamento considerável para as cópias dos elementos.
+
+8.1 - O Java conserva armazenamento mantendo somente uma cópia de cada método por classe — esse método é invocado por cada objeto dessa classe. Cada objeto, por outro lado, tem sua própria cópia das variáveis de instância da classe. Cada método da classe
+utiliza implicitamente this para determinar o objeto específico da classe a manipular.
 
 # Erro comum de programação
 
@@ -200,6 +213,17 @@ e b e c variáveis int individuais, então essa declaração é incorreta — a 
 sintaxe. As reticências só podem ser colocadas no fim da lista de parâmetros.
 
 7.6 - Passar um array não classificado para binarySearch é um erro de lógica — o valor retornado é indefinido.
+
+8.1 - Uma tentativa por um método que não é membro de uma classe de acessar um membro private dessa classe é um erro de com-
+pilação.
+
+8.2 - É um erro de compilação se this for utilizado no corpo de um construtor para chamar outros construtores da mesma classe se essa chamada não for a primeira instrução do construtor. Também é um erro de compilação se um método tentar invocar um
+construtor diretamente via this.
+
+8.3 - Um erro de compilação ocorre se um programa tenta inicializar um objeto de uma classe passando o número ou tipo errado de
+argumentos para o construtor da classe.
+
+8.4 - Em uma declaração enum, é um erro de sintaxe declarar constantes enum após construtores, campos e métodos do tipo enum.
 
 # Boa prática de programação 
 
@@ -357,6 +381,17 @@ menor que o comprimento do array. Isso evitaria ArrayIndexOutOfBoundsExceptions 
 
 7.3 - Ao comparar o conteúdo do array, sempre use Arrays.equals(array1, array2), que compara o conteúdo dos dois arrays, em vez
 de array1.equals(array2), que compara se array1 e array2 se referem ao mesmo objeto array.
+
+8.1 - A maioria dos IDEs emitirá um alerta se você afirmar x = x; em vez de this.x = x;. A instrução x = x; é muitas vezes chamada
+no-op (no operation).
+
+8.2 - Certifique-se de que você não inclui um tipo de retorno na definição de um construtor. O Java permite que outros métodos da classe além dos seus construtores tenham o mesmo nome da classe e especifiquem tipos de retorno. Esses métodos não são construtores e
+não serão chamados quando um objeto da classe for instanciado.
+
+8.3 - Não forneça constantes public static final se é provável que os valores das constantes mudem nas versões futuras do seu software.
+
+8.4 - Usar métodos set e get ajuda a criar classes que são mais fáceis de depurar e manter. Se apenas um método realizar uma tarefa particular, como configurar uma instância de variável em um objeto, é mais fácil depurar e manter a classe. Se a variável de instância não for configurada corretamente, o código que na verdade modifica a variável de instância estará localizado em um único
+método set. Seus esforços de depuração podem focalizar esse único método.
 
 # Dica de portabilidade 
 
