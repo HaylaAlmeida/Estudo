@@ -63,6 +63,14 @@ Divida esse método em vários menores.
 8.1 - Valide todos os argumentos do método antes de usá-los para definir os valores das
 variáveis de instância a fim de garantir que os dados do objeto só sejam modificados se todos os argumentos forem válidos.
 
+8.2 - Métodos declarados com o modificador de acesso private só podem ser chamados por outros métodos da classe em que os métodos private são declarados. Esses métodos são comumente chamados de métodos utilitários ou métodos auxiliares porque eles são tipicamente utilizados para suportar a operação dos outros métodos
+da classe.
+
+8.3 - Classes simplificam a programação porque o cliente só pode utilizar os métodos public de uma classe. Normalmente, esses métodos são direcionados aos clientes em vez de à implementação. Os clientes não estão cientes de, nem envolvidos em, uma implementação da classe. Eles geralmente se preocupam com o que a classe faz, mas não como a classe faz isso.
+
+8.4 - As interfaces mudam com menos frequência que as implementações. Quando uma implementação muda, o código dependente de implementação deve alterar correspondentemente. Ocultar a implementação reduz a possibilidade de que outras partes do progra-
+ma irão se tornar dependentes dos detalhes sobre a implementação da classe.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
