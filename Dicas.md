@@ -60,6 +60,9 @@ Divida esse método em vários menores.
 
 7.1 - É provável que sistemas na indústria que foram submetidos a testes extensivos ainda contenham erros. Nossa preferência por sistemas de produção robustos é capturar e tratar exceções em tempo de execução, como ArrayIndexOutOfBoundsExceptions, para garantir que um sistema continue funcionando ou falhe de maneira “elegante” e informar os desenvolvedores do sistema sobre o problema.
 
+8.1 - Valide todos os argumentos do método antes de usá-los para definir os valores das
+variáveis de instância a fim de garantir que os dados do objeto só sejam modificados se todos os argumentos forem válidos.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
