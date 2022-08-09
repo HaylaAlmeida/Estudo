@@ -178,15 +178,140 @@ public class Main  {
 ~~~
 
 7.18 (Jogo de dados Craps) Escreva um aplicativo que executa 1.000.000 de partidas do jogo de dados craps (Figura 6.8) e responda às seguintes perguntas: 
+
+    a) Quantos jogos são ganhos na primeira rolagem, segunda rolagem, …, vigésima rolagem e depois da vigésima rolagem? 
+
+Cerca de 490 mil
+
+    b) Quantos jogos são perdidos na primeira rolagem, segunda rolagem, …, vigésima rolagem e depois da vigésima rolagem?
+
+Cerca de 510 mil
+
+    c) Quais são as chances de ganhar no jogo de dados? [Observação: você deve descobrir que o craps é um dos jogos mais comuns de cassino. O que você supõe que isso significa?]
+49%
+    
+    d) Qual é a duração média de um jogo de dados craps?
+    
+Uma jogada
+
+    e) As chances de ganhar aumentam com a duração do jogo?
+Não
+
+7.19 (Sistema de reservas de passagens aéreas) Uma pequena companhia aérea acabou de comprar um computador para seu novo sistema automatizado de reservas. Você foi solicitado a desenvolver o novo sistema. Você escreverá um aplicativo para atribuir assentos em cada voo da companhia aérea (capacidade: 10 assentos). Seu aplicativo deve exibir as seguintes alternativas: Please type 1 for First Class e Please type 2 for Economy. [Por
+favor digite 1 para Primeira Classe e digite 2 para Classe Econômica]. Se o usuário digitar 1, seu aplicativo deve atribuir assentos na primeira classe (poltronas 1 a 5). Se o usuário digitar 2, seu aplicativo deve atribuir um assento na classe econômica (poltronas 6 a 10). Seu aplicativo deve exibir um cartão de embarque indicando o número da poltrona da pessoa e se ela está na primeira classe ou na classe econômica.
+Utilize um array unidimensional do tipo primitivo boolean para representar o gráfico de assentos do avião. Inicialize todos os elementos do array como false para indicar que todas as poltronas estão desocupadas. À medida que cada assento é atribuído, configure o elemento correspondente do array como true para indicar que o assento não está mais disponível. Seu aplicativo nunca deve atribuir uma poltrona que já foi reservada. Quando a classe econômica estiver lotada, seu aplicativo deve perguntar à pessoa se ela aceita ficar na primeira classe (e vice-versa). Se sim, faça a atribuição apropriada de assento. Se não, exiba a men-
+sagem "Next flight leaves in 3 hours" [O próximo voo parte em 3 horas].
 ~~~
-a) Quantos jogos são ganhos na primeira rolagem, segunda rolagem, …, vigésima rolagem e depois da vigésima rolagem? 
-b) Quantos jogos são perdidos na primeira rolagem, segunda rolagem, …, vigésima rolagem e depois da vigésima rolagem? 
-c) Quais são as chances de ganhar no jogo de dados? [Observação: você deve descobrir que o craps é um dos jogos mais comuns de cassino. O que você supõe que isso significa?]
-d) Qual é a duração média de um jogo de dados craps?
-e) As chances de ganhar aumentam com a duração do jogo?
+import java.util.Scanner;
+
+public class Main  {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        boolean[] seats = new boolean[10];
+        int choice;
+        int controlFC = 0;
+        int controlEC = 5;
+        int choiceClass;
+        System.out.println("Por favor digite 1 para Primeira Classe e digite 2 para Classe Econômica: ");
+        choice = input.nextInt();
+
+        while (choice == 1 || choice == 2) {
+            if (choice == 1){
+                if (controlFC < 5) {
+                    seats[controlFC] = true;
+                    controlFC++;
+                }
+                else {
+                    if (controlEC < 10) {
+                        System.out.println("Aceita ficar na classe econômica? 0 (Não) - 1 (Sim):");
+                        choiceClass = input.nextInt();
+                        if (choiceClass == 1) {
+                            seats[controlEC] = true;
+                            controlEC++;
+                        }
+                        else
+                            System.out.println("O próximo voo parte em 3 horas");
+                    }
+                    else {
+                        System.out.println("O próximo voo parte em 3 horas");
+                    }
+                }
+            }
+            else {
+                if (controlEC < 10) {
+                    seats[controlEC] = true;
+                    controlEC++;
+                }
+                else {
+                    if (controlFC < 5) {
+                        System.out.println("Aceita ficar na classe econômica? 0 (Não) - 1 (Sim):");
+                        choiceClass = input.nextInt();
+                        if (choiceClass == 1) {
+                            seats[controlFC] = true;
+                            controlFC++;
+                        }
+                        else
+                            System.out.println("O próximo voo parte em 3 horas");
+                    }
+                    else {
+                        System.out.println("O próximo voo parte em 3 horas");
+                    }
+                }
+            }
+            for (int i = 0; i < seats.length; i++){
+                System.out.printf("%b   ", seats[i]);
+            }
+            System.out.println();
+            choice = input.nextInt();
+        }
+    }
+}
 ~~~
 
+TODO: Criar um método para atribuição de assentos, diminuindo a quantidade de estruturas de decisão.
 
+7.20 (Vendas totais) Utilize um array bidimensional para resolver o seguinte problema: uma empresa tem quatro equipes de vendas (1 a 4) que vendem cinco produtos diferentes (1 a 5). Uma vez por dia, cada vendedor passa uma nota de cada tipo de produto diferente vendido. Cada nota contém o seguinte: a) O número do vendedor b) O número do produto c) O valor total em reais desse produto vendido nesse dia Portanto, cada vendedor passa entre 0 e 5 notas de vendas por dia. Suponha que as informações a partir de todas as notas durante o último mês estejam disponíveis. Escreva um aplicativo que leia todas essas informações sobre as vendas do último mês e resuma as vendas totais por vendedor e por produto. Todos os totais devem ser armazenados no array bidimensional sales. Depois de processar todas as informações do último mês, exiba os resultados em formato tabular, com cada coluna representando um vendedor particular e cada linha representando um produto particular. Some cada linha para obter o total das vendas de cada produto no último mês. Some cada coluna para obter o total de vendas por vendedor no último mês. Sua saída tabular deve incluir esses totais cruzados à direita das linhas totalizadas e na
+parte inferior das colunas totalizadas.
+ 
+~~~
+import java.util.Scanner;
 
+public class Main  {
 
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int[][] sales = new int[5][6];
+        int total;
+        int totalProducts = 0;
+        int totalSeller = 0;
+        int dias = 2;
+        while (dias > 0){
+            for (int i = 1; i < 5; i++){
+                for (int j = 1; j < 6; j++) {
+                    total = input.nextInt();
+                    sales[i][j] += total;
+                }
+            }
+            dias--;
+        }
+        for (int i = 1; i < 5; i++){
+            for (int j = 1; j < 6; j++){
+                totalSeller += sales[i][j];
+            }
+            System.out.printf("Vendedor %d - Total: %d%n", i, totalSeller);
+            totalSeller = 0;
+        }
+        for (int i = 1; i < 6; i++){
+            for (int j = 1; j < 5; j++){
+                totalProducts += sales[j][i];
+            }
+            System.out.printf("Produto %d - Total: %d%n", i, totalProducts);
+            totalProducts = 0;
+        }
+    }
+}
+~~~
 
