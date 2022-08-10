@@ -7,11 +7,11 @@
 
 ##  FUNDAMENTOS
 
-◼ Sintaxe básica       																								◼ Variáveis																					◼ Tipos de dados
+◼ Sintaxe básica       																							  ◼ Variáveis																					✅ Tipos de dados
 
-◼ Condicionais																												◼ Funções 																					◼ Loops
+✅ Condicionais																										   ◼ Funções 																					 ✅ Loops
 
-◼ Tratamento de exceção																								◼ Estrutura de dados																◼ Pacotes
+◼ Tratamento de exceção																						   ◼ Estrutura de dados																◼ Pacotes
 
 ◼ Programação Orientada a Objetos																			◼ Arquivos e APIs
 
@@ -21,7 +21,7 @@
 
 ◼ Networking e Sockets																								◼ Generics																					◼ Streams
 
-◼ JVM																																	◼ Garbage Collection																◼ Threads
+◼ JVM																																	✅ Garbage Collection																◼ Threads
 
 ## BUILD TOOLS
 
