@@ -94,6 +94,27 @@ deve ser modificada, declare-a como final para evitar modificação.
 8.12 - Um campo final também deve ser declarado static se ele for inicializado na sua declaração para um valor que é o mesmo para
 todos os objetos da classe. Após essa inicialização, seu valor nunca pode mudar.
 
+9.1 - Os métodos de uma subclasse não conseguem acessar diretamente os membros private de sua superclasse. Uma subclasse pode alterar o estado de variáveis de instância private da superclasse somente por meio de métodos não private fornecidos na superclasse e herdados pela subclasse.
+
+9.2 - Declarar variáveis de instância private ajuda você a testar, depurar e modificar sistemas corretamente. Se uma subclasse pudesse acessar variáveis de instância private da sua superclasse, classes que herdam dessa subclasse também poderiam acessar as variáveis de instância. Isso propagaria acesso ao que devem ser variáveis de instância private, e os benefícios do ocultamento
+de informações seriam perdidos.
+
+9.3 - Com a herança, os métodos e as variáveis de instância que são os mesmos para todas as classes na hierarquia são declarados em uma superclasse. As alterações feitas nesses recursos comuns na superclasse são herdadas pela subclasse. Sem a herança, as alterações precisariam ser feitas em todos os arquivos de código-fonte que contêm uma cópia do código em questão.
+
+9.4 - Na etapa do design de um sistema orientado a objetos, você com frequência descobrirá que certas classes estão intimamente relacionadas. Você deve “fatorar” as variáveis de instância e os métodos comuns e colocá-los em uma superclasse. Então, deve utilizar a herança para desenvolver subclasses, especializando-as com capacidades além daquelas herdadas da superclasse.
+
+9.5 - Declarar uma subclasse não afeta o código-fonte da sua superclasse. A herança preserva a integridade da superclasse.
+
+9.6 - Não se deve chamar os métodos de instância de uma classe a partir dos construtores. Chamar um construtor de superclasse a partir de um construtor de subclasse não contradiz esse conselho.
+
+9.7 - Utilize o modificador de acesso protected quando uma superclasse precisar fornecer um método somente para suas subclasses e outras classes no mesmo pacote, mas não para outros clientes.
+
+9.8 - Declarar as variáveis de instância da superclasse private (em oposição a protected) permite a implementação de superclasse
+dessas variáveis de instância para alteração sem afetar as implementações de subclasse.
+
+9.9 - O Java assegura que, mesmo que um construtor não atribua um valor a uma variável de instância, ela ainda será inicializada
+como seu valor padrão (por exemplo, 0 para tipos numéricos primitivos, false para booleans, null para referências).
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
@@ -246,6 +267,10 @@ argumentos para o construtor da classe.
 que têm o mesmo nome proveniente de duas ou mais classes.
 
 8.8 - Tentar modificar uma variável de instância final depois que é ela inicializada é um erro de compilação.
+
+9.1 - É um erro de compilação sobrescrever um método com um modificador de acesso restrito — um método public da superclasse não pode mais tornar-se protected ou private da subclasse; um método protected da superclasse não pode tornar-se private da subclasse. Fazer isso violaria o relacionamento é um, que exige que todos os objetos da subclasse sejam capazes de responder a chamadas de método feitas para métodos public declarados na superclasse. Se um método public pudesse ser sobrescrito como protected ou private, os objetos de subclasse não seriam capazes de responder às mesmas chamadas de método como objetos de superclasse. Uma vez que um método é declarado public em uma superclasse, ele permanece public para todas as subclasses diretas e indiretas da classe.
+
+9.2 - Quando um método de superclasse é sobrescrito em uma subclasse, a versão de subclasse frequentemente chama a versão de superclasse para fazer uma parte do trabalho. Não prefixar o nome do método da superclasse com a palavra-chave super e um ponto (.) separador ao chamá-lo faz o método da subclasse chamar a ele mesmo, criando potencialmente um erro chamado recursão infinita, que mais à frente provocaria um estouro na pilha de métodos — um erro fatal em tempo de execução.
 
 # Boa prática de programação 
 
@@ -419,6 +444,11 @@ não serão chamados quando um objeto da classe for instanciado.
 
 8.5 - Tentativas de modificar uma variável de instância final são capturadas em tempo de compilação em vez de causarem erros em tempo de execução. Sempre é preferível retirar bugs em tempo de compilação, se possível, em vez de permitir que passem para o
 tempo de execução (onde experiências descobriram que o reparo é frequentemente muito mais caro).
+
+9.1 - Embora seja opcional, declare métodos sobrescritos com @Override para assegurar em tempo de compilação que suas assinaturas foram definidas corretamente. Sempre é melhor encontrar erros em tempo de compilação em vez de em tempo de execução.
+
+9.2 - Quando possível, não inclua variáveis de instância protected em uma superclasse. Em vez disso, inclua métodos não private
+que acessam as variáveis de instância private. Isso ajudará a assegurar que os objetos da classe mantenham estados consistentes.
 
 # Dica de portabilidade 
 
