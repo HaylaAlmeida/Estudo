@@ -115,6 +115,15 @@ dessas variáveis de instância para alteração sem afetar as implementações 
 9.9 - O Java assegura que, mesmo que um construtor não atribua um valor a uma variável de instância, ela ainda será inicializada
 como seu valor padrão (por exemplo, 0 para tipos numéricos primitivos, false para booleans, null para referências).
 
+10.1 - O polimorfismo permite-lhe tratar as generalidades e deixar que o ambiente de tempo de execução trate as especificidades. Você pode instruir objetos a se comportarem de maneiras apropriadas para esses objetos, sem nem mesmo conhecer seus tipos específicos, contanto que os objetos pertençam à mesma hierarquia de herança.
+
+10.2 - O polimorfismo promove a extensibilidade: o software que invoca o comportamento polimórfico é independente dos tipos de objeto para os quais as mensagens são enviadas. Novos tipos de objeto que podem responder a chamadas de método existentes podem ser incorporados a um sistema sem modificar o sistema básico. Somente o código de cliente que instancia os novos objetos deve ser modificado para acomodar os novos tipos.
+
+10.3 - Embora seja permitido, você geralmente deve evitar o downcasting.
+
+10.4 - Uma classe abstrata declara atributos e comportamentos comuns (ambos abstratos e concretos) das várias classes em uma hierarquia de classes. Em geral, uma classe abstrata contém um ou mais métodos abstratos que as subclasses devem sobrescrever se elas precisarem ser concretas. Variáveis de instância e métodos concretos de uma classe abstrata estão sujeitos às regras normais da
+herança.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
@@ -271,6 +280,11 @@ que têm o mesmo nome proveniente de duas ou mais classes.
 9.1 - É um erro de compilação sobrescrever um método com um modificador de acesso restrito — um método public da superclasse não pode mais tornar-se protected ou private da subclasse; um método protected da superclasse não pode tornar-se private da subclasse. Fazer isso violaria o relacionamento é um, que exige que todos os objetos da subclasse sejam capazes de responder a chamadas de método feitas para métodos public declarados na superclasse. Se um método public pudesse ser sobrescrito como protected ou private, os objetos de subclasse não seriam capazes de responder às mesmas chamadas de método como objetos de superclasse. Uma vez que um método é declarado public em uma superclasse, ele permanece public para todas as subclasses diretas e indiretas da classe.
 
 9.2 - Quando um método de superclasse é sobrescrito em uma subclasse, a versão de subclasse frequentemente chama a versão de superclasse para fazer uma parte do trabalho. Não prefixar o nome do método da superclasse com a palavra-chave super e um ponto (.) separador ao chamá-lo faz o método da subclasse chamar a ele mesmo, criando potencialmente um erro chamado recursão infinita, que mais à frente provocaria um estouro na pilha de métodos — um erro fatal em tempo de execução.
+
+10.1 - Tentar instanciar um objeto de uma classe abstrata é um erro de compilação.
+
+10.2 - Falha para implementar os métodos abstratos de uma superclasse em uma subclasse é um erro de compilação, a menos que a
+subclasse também seja declarada abstract.
 
 # Boa prática de programação 
 
