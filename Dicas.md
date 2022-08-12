@@ -124,6 +124,26 @@ como seu valor padrão (por exemplo, 0 para tipos numéricos primitivos, false p
 10.4 - Uma classe abstrata declara atributos e comportamentos comuns (ambos abstratos e concretos) das várias classes em uma hierarquia de classes. Em geral, uma classe abstrata contém um ou mais métodos abstratos que as subclasses devem sobrescrever se elas precisarem ser concretas. Variáveis de instância e métodos concretos de uma classe abstrata estão sujeitos às regras normais da
 herança.
 
+10.5 - Embora o método real que é chamado dependa do tipo em tempo de execução do objeto que a variável referencia, uma variável só
+pode ser usada para chamar os métodos que são membros do tipo dessa variável, o que o compilador verifica.
+
+10.6 - Na Java API, a ampla maioria das classes não é declarada final. Isso permite herança e polimorfismo. Entretanto, em alguns casos, é importante declarar classes final — em geral por questões de segurança. Além disso, a menos que você projete cuidadosamente
+uma classe para extensão, declare a classe como final para evitar erros (geralmente sutis).
+
+10.7 - Muitos desenvolvedores acham que interfaces são uma tecnologia de modelagem ainda mais importante do que classes, especial-
+mente com as novas melhorias na interface Java SE 8.
+
+10.8 - Todos os objetos de uma classe que implementam múltiplas interfaces têm o relacionamento é um com cada tipo de interface im-
+plementado.
+
+10.9 - Quando um parâmetro de método é declarado com uma superclasse ou tipo de interface, o método processa o objeto passado polimorficamente como um argumento.
+
+10.10 - Utilizando uma referência de superclasse, podemos invocar polimorficamente qualquer método declarado na superclasse e suas superclasses (por exemplo, a classe Object). Utilizando uma referência de interface, podemos invocar polimorficamente qualquer método declarado na interface, em suas superinterfaces (uma interface pode estender outra) e na classe Object — a variável de
+um tipo de interface deve referenciar um objeto para chamar métodos, e todos os objetos têm os métodos da classe Object.
+
+10.11 - Os métodos default do Java SE 8 permitem expandir as interfaces existentes adicionando novos métodos a essas interfaces sem
+quebrar o código que as usa.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
@@ -286,6 +306,16 @@ que têm o mesmo nome proveniente de duas ou mais classes.
 10.2 - Falha para implementar os métodos abstratos de uma superclasse em uma subclasse é um erro de compilação, a menos que a
 subclasse também seja declarada abstract.
 
+10.3 - Atribuir uma variável de superclasse a uma variável de subclasse é um erro de compilação.
+
+10.4 - Ao fazer o downcast de uma referência, uma ClassCastException ocorre se em tempo de execução o objeto reverenciado não tiver
+um relacionamento é um com o tipo especificado no operador de coerção.
+
+10.5 - Tentar declarar uma subclasse de uma classe final é um erro de compilação.
+
+10.6 - Falhar em implementar qualquer método de uma interface em uma classe concreta que implementa a interface resulta em um erro
+de compilação indicando que a classe deve ser declarada abstract.
+
 # Boa prática de programação 
 
 2.1 - Algumas organizações exigem que todo programa comece com um comentário que informa o objetivo e o autor 
@@ -363,6 +393,12 @@ em ARRAY_LENGTH.
 
 8.1 - Invoque cada método static utilizando o nome de classe e um ponto (.) para enfatizar que o método sendo chamado é um método
 static.
+
+10.1 - De acordo com a especificação da linguagem Java, o estilo adequado é declarar métodos abstract de uma interface sem as palavras-chave public e abstract, porque elas são redundantes nas declarações de método da interface. De maneira semelhante, as
+constantes da interface devem ser declaradas sem as palavras-chave public, static e final, porque elas também são redundantes.
+
+10.2 - Ao declarar um método em uma interface, escolha um nome de método que descreva o propósito do método de uma maneira geral,
+pois o método pode ser implementado por muitas classes não relacionadas.
 
 # Dica de prevenção de erro 
 
@@ -463,6 +499,9 @@ tempo de execução (onde experiências descobriram que o reparo é frequentemen
 
 9.2 - Quando possível, não inclua variáveis de instância protected em uma superclasse. Em vez disso, inclua métodos não private
 que acessam as variáveis de instância private. Isso ajudará a assegurar que os objetos da classe mantenham estados consistentes.
+
+10.1 - Dissemos que você não deve chamar os métodos de instância de uma classe a partir dos construtores — você pode chamar os métodos da classe static e fazer a chamada necessária para um dos construtores da superclasse. Se seguir esse conselho, você evitará o problema de chamar os métodos que podem ser sobrescritos direta ou indiretamente na classe, o que pode levar a erros em tempo
+de execução.
 
 # Dica de portabilidade 
 
