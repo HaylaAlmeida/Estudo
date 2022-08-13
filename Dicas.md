@@ -133,16 +133,43 @@ uma classe para extensão, declare a classe como final para evitar erros (geralm
 10.7 - Muitos desenvolvedores acham que interfaces são uma tecnologia de modelagem ainda mais importante do que classes, especial-
 mente com as novas melhorias na interface Java SE 8.
 
-10.8 - Todos os objetos de uma classe que implementam múltiplas interfaces têm o relacionamento é um com cada tipo de interface im-
-plementado.
+10.8 - Todos os objetos de uma classe que implementam múltiplas interfaces têm o relacionamento é um com cada tipo de interface implementado.
 
 10.9 - Quando um parâmetro de método é declarado com uma superclasse ou tipo de interface, o método processa o objeto passado polimorficamente como um argumento.
 
 10.10 - Utilizando uma referência de superclasse, podemos invocar polimorficamente qualquer método declarado na superclasse e suas superclasses (por exemplo, a classe Object). Utilizando uma referência de interface, podemos invocar polimorficamente qualquer método declarado na interface, em suas superinterfaces (uma interface pode estender outra) e na classe Object — a variável de
 um tipo de interface deve referenciar um objeto para chamar métodos, e todos os objetos têm os métodos da classe Object.
 
-10.11 - Os métodos default do Java SE 8 permitem expandir as interfaces existentes adicionando novos métodos a essas interfaces sem
-quebrar o código que as usa.
+10.11 - Os métodos default do Java SE 8 permitem expandir as interfaces existentes adicionando novos métodos a essas interfaces sem quebrar o código que as usa.
+
+11.1 - As exceções emergem pelo código explicitamente mencionado em um bloco try, por chamadas de método profundamente ani-
+nhadas iniciado pelo código em um bloco try ou a partir da Java Virtual Machine à medida que ela executa os bytecodes do Java.
+
+11.2 - Incorpore seu tratamento de exceção e a estratégia de recuperação de erro a seu sistema desde o início do processo de projeto — incluí-las depois que um sistema foi implementado pode ser difícil.
+
+11.3 - O tratamento de exceção fornece uma técnica única e uniforme para documentar, detectar e recuperar-se de erros. Isso ajuda os programadores que trabalham em grandes projetos a entender o código de processamento de erro uns dos outros.
+
+11.4 - Há uma grande variedade de situações que geram exceções — algumas exceções são mais fáceis de recuperar do que outras.
+
+11.5 - Se seu método chamar outros métodos que lançam exceções verificadas, essas exceções devem ser capturadas ou declaradas. Se uma exceção pode ser significativamente tratada em um método, o método deve capturar a exceção em vez de declará-la.
+
+11.6 - Embora o compilador não imponha o requisito capture ou declare para as exceções não verificadas, ele fornece o código de tratamento de exceção adequado quando se sabe que tais exceções são possíveis. Por exemplo, um programa deve processar a NumberFormatException do método Integer parseInt, mesmo que NumberFormatException seja uma subclasse indireta de RuntimeException (e, portanto, um tipo de exceção não verificada). Isso torna os programas mais robustos.
+
+11.7 - Na indústria, lançar ou capturar o tipo Exception é desencorajado — nós o utilizamos aqui simplesmente para demonstrar a mecânica do tratamento de exceção. Nos capítulos seguintes, geralmente lançamos e capturamos tipos de exceção mais específicos.
+
+11.8 - Quando toString é invocada em qualquer objeto Throwable, sua string resultante inclui a String descritiva que foi fornecida para o construtor, ou simplesmente o nome de classe se nenhuma String foi fornecida.
+
+11.9 - Uma exceção pode ser lançada sem conter informações sobre o problema que ocorreu. Nesse caso, simplesmente saber que uma exceção de um tipo particular ocorreu pode fornecer informações suficientes para a rotina de tratamento processar o problema corretamente.
+
+11.10 - Lance exceções de construtores para indicar que os parâmetros de construtor não são válidos — isso evita que um objeto seja criado em um estado inválido.
+
+11.11 - Ocasionalmente, talvez você queira ignorar uma exceção escrevendo uma rotina de tratamento catch com um corpo vazio. Antes de fazer isso, certifique-se de que a exceção não indica uma condição que o código mais acima na pilha pode querer reconhecer ou do qual pode querer se recuperar.
+
+11.12 - Ao definir seu próprio tipo de exceção, estude as classes de exceção existentes na Java API e tente estender uma classe de exceção relacionada. Por exemplo, se estiver criando uma nova classe para representar quando um método tenta uma divisão por zero, você poderia estender a classe ArithmeticException, porque a divisão por zero ocorre durante a aritmética. Se as classes existentes não forem superclasses apropriadas para sua nova classe de exceção, decida se a nova classe deve ser uma classe de exceção verificada ou não verificada. Caso se exija que os clientes tratem a exceção, a nova classe de exceção deve ser uma exceção verificada (isto é, estender Exception, mas não RuntimeException). A aplicação cliente deve ser razoavelmente capaz de se recuperar de tal exceção. Se o código do cliente deve ser capaz de ignorar a exceção (isto é, a exceção é não verificada), a nova classe de exceção deve
+estender RuntimeException.
+
+11.13 - Os usuários não devem encontrar AssertionErrors — eles devem ser usados somente durante o desenvolvimento do programa. Por essa razão, você não deve capturar AssertionErrors. Em vez disso, permita que o programa termine, assim você pode ver a mensagem de erro e então localizar e corrigir a fonte do problema. Não use assert para indicar problemas em tempo de execução no código de produção (como fizemos na Figura 11.8 para propósitos de demonstração) — use o mecanismo de exceção para essa
+finalidade.
 
 # Dica de desempenho
 
@@ -157,8 +184,9 @@ compiladores de otimização sofisticados de hoje colocarão esses cálculos for
 7.1 - Passar referências para arrays, em vez dos próprios objetos array, faz sentido por razões de desempenho. Como tudo em Java é passado por valor, se objetos array foram passados, uma cópia de cada elemento seria passada. Para arrays grandes, isso seria perda
 de tempo e consumiria armazenamento considerável para as cópias dos elementos.
 
-8.1 - O Java conserva armazenamento mantendo somente uma cópia de cada método por classe — esse método é invocado por cada objeto dessa classe. Cada objeto, por outro lado, tem sua própria cópia das variáveis de instância da classe. Cada método da classe
-utiliza implicitamente this para determinar o objeto específico da classe a manipular.
+8.1 - O Java conserva armazenamento mantendo somente uma cópia de cada método por classe — esse método é invocado por cada objeto dessa classe. Cada objeto, por outro lado, tem sua própria cópia das variáveis de instância da classe. Cada método da classe utiliza implicitamente this para determinar o objeto específico da classe a manipular.
+
+11.1 - Sempre libere um recurso explicitamente e logo que ele não for mais necessário. Isso faz com que os recursos disponíveis possam ser reutilizados o mais rápido possível, melhorando assim a utilização dos recursos e o desempenho do programa.
 
 # Erro comum de programação
 
@@ -316,6 +344,16 @@ um relacionamento é um com o tipo especificado no operador de coerção.
 10.6 - Falhar em implementar qualquer método de uma interface em uma classe concreta que implementa a interface resulta em um erro
 de compilação indicando que a classe deve ser declarada abstract.
 
+11.1 - É um erro de sintaxe colocar código entre um bloco try e seus blocos catch correspondentes.
+
+11.2 - Se um método de subclasse sobrescreve um método de superclasse, é um erro o método de subclasse listar mais exceções em sua cláusula throws do que o método da superclasse lista. Entretanto, a cláusula throws de uma subclasse pode conter um subconjunto da cláusula throws de uma superclasse.
+
+11.3 - Colocar um bloco catch para um tipo de exceção de superclasse antes de outros blocos catch que capturam tipos de exceção de subclasse impediria que esses blocos executem, então ocorre um erro de compilação.
+
+11.4 - Se uma exceção não tiver sido capturada quando o controle entrar em um bloco finally e esse bloco lançar uma exceção que não será capturada por ele, a primeira exceção será perdida e a exceção do bloco será retornada ao método chamador.
+
+11.5 - Supor que uma exceção lançada de um bloco catch será processada por esse bloco catch ou qualquer outro bloco catch associado com a mesma instrução try pode resultar em erros de lógica.
+
 # Boa prática de programação 
 
 2.1 - Algumas organizações exigem que todo programa comece com um comentário que informa o objetivo e o autor 
@@ -397,8 +435,13 @@ static.
 10.1 - De acordo com a especificação da linguagem Java, o estilo adequado é declarar métodos abstract de uma interface sem as palavras-chave public e abstract, porque elas são redundantes nas declarações de método da interface. De maneira semelhante, as
 constantes da interface devem ser declaradas sem as palavras-chave public, static e final, porque elas também são redundantes.
 
-10.2 - Ao declarar um método em uma interface, escolha um nome de método que descreva o propósito do método de uma maneira geral,
-pois o método pode ser implementado por muitas classes não relacionadas.
+10.2 - Ao declarar um método em uma interface, escolha um nome de método que descreva o propósito do método de uma maneira geral, pois o método pode ser implementado por muitas classes não relacionadas.
+
+11.1 O tratamento de exceção remove o código de processamento de erro da linha principal do código de um programa para melhorar a clareza do programa. Não coloque try…catch… finally em torno de toda instrução que possa lançar uma exceção. Isso diminui a legibilidade. Em vez disso, coloque um bloco try em torno de uma parte significativa do código. Esse bloco try deve ser seguido por blocos catch que tratam cada possível exceção e os blocos catch devem ser seguidos por um único bloco finally (se algum for necessário).
+
+11.2 - Associar cada tipo de malfuncionamento sério em tempo de execução com uma classe Exception apropriadamente identificada aprimora a clareza do programa.
+
+11.3 - Por convenção, todos os nomes de classe de exceções devem terminar com a palavra Exception.
 
 # Dica de prevenção de erro 
 
@@ -502,6 +545,23 @@ que acessam as variáveis de instância private. Isso ajudará a assegurar que o
 
 10.1 - Dissemos que você não deve chamar os métodos de instância de uma classe a partir dos construtores — você pode chamar os métodos da classe static e fazer a chamada necessária para um dos construtores da superclasse. Se seguir esse conselho, você evitará o problema de chamar os métodos que podem ser sobrescritos direta ou indiretamente na classe, o que pode levar a erros em tempo
 de execução.
+
+11.1 - Leia a documentação on-line da API para obter informações sobre um método antes de utilizá-lo em um programa. A documentação especifica as exceções lançadas pelo método (se houver alguma) e indica as razões pelas quais tais exceções podem ocorrer. Em seguida, leia na documentação da API on-line as classes de exceção especificadas. A documentação para uma classe de exceção normal-
+mente contém razões potenciais por que essas exceções ocorrem. Por fim, forneça o tratamento para essas exceções em seu programa.
+
+11.2 - Você deve lidar com exceções verificadas. Isso resulta em código mais robusto do que aquele que seria criado se você fosse capaz de simplesmente ignorar as exceções.
+
+11.3 - A captura de tipos de subclasse individualmente está sujeita a erro se você se esquecer de testar um ou mais dos tipos de subclasse explicitamente; capturar a superclasse garante que os objetos de todas as subclasses serão capturados. Posicionar um bloco catch para o tipo de superclasse depois de todos os outros blocos catch de subclasse garante que todas as exceções de subclasses são por fim capturadas.
+
+11.4 - Uma questão sutil é que o Java não elimina inteiramente os vazamentos de memória. O Java não efetuará coleta de lixo de um objeto até que não haja nenhuma referência a ele. Portanto, se você mantiver erroneamente referências a objetos indesejáveis, vazamentos de memória podem ocorrer.
+
+11.5 - O bloco finally é um lugar ideal para liberar os recursos adquiridos em um bloco try (como arquivos abertos), o que ajuda a eliminar vazamentos de recurso.
+
+11.6 - Evite inserir em um bloco finally código que pode usar throw para lançar uma exceção. Se esse código for necessário, inclua o código em um try…catch dentro do bloco finally.
+
+11.7 - Uma exceção que não é capturada em um aplicativo faz com que a rotina de tratamento de exceção padrão do Java execute. Isso exibe o nome da exceção, uma mensagem descritiva que indica o problema que ocorreu e um completo rastreamento da pilha de execução. Em um aplicativo com uma única thread de execução, o aplicativo termina. Em um aplicativo com várias threads, a thread que causou a exceção termina.
+
+11.8 O método Throwable toString (herdado por todas as subclasses Throwable) retorna uma string contendo o nome da classe da exceção e uma mensagem descritiva.
 
 # Dica de portabilidade 
 
