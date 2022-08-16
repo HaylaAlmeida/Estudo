@@ -171,6 +171,8 @@ estender RuntimeException.
 11.13 - Os usuários não devem encontrar AssertionErrors — eles devem ser usados somente durante o desenvolvimento do programa. Por essa razão, você não deve capturar AssertionErrors. Em vez disso, permita que o programa termine, assim você pode ver a mensagem de erro e então localizar e corrigir a fonte do problema. Não use assert para indicar problemas em tempo de execução no código de produção (como fizemos na Figura 11.8 para propósitos de demonstração) — use o mecanismo de exceção para essa
 finalidade.
 
+14.1 - StringBuilders não são seguras a thread. Se múltiplas threads exigem acesso às mesmas informações de string dinâmica, use a classe StringBuffer no seu código. As classes StringBuilder e StringBuffer fornecem capacidades idênticas, mas a classe StringBuffer é segura para threads.
+
 # Dica de desempenho
 
 1.1 - Utilizar as classes e os métodos da Java API em vez de escrever suas próprias 
@@ -188,6 +190,17 @@ de tempo e consumiria armazenamento considerável para as cópias dos elementos.
 
 11.1 - Sempre libere um recurso explicitamente e logo que ele não for mais necessário. Isso faz com que os recursos disponíveis possam ser reutilizados o mais rápido possível, melhorando assim a utilização dos recursos e o desempenho do programa.
 
+14.1 - Para economizar a memória, o Java trata todos os literais string com o mesmo conteúdo de um único objeto String que tem muitas
+referências a ele.
+
+14.2 - Não é necessário copiar um objeto String existente. Objetos String são imutáveis, porque a classe String não fornece métodos que
+permitem que o conteúdo de um objeto String seja modificado depois que ele é criado.
+
+14.3 - O Java pode realizar certas otimizações que envolvem objetos String (como referenciar um objeto String a partir de múltiplas variáveis) porque ele sabe que esses objetos não se alterarão. Strings (não StringBuilders) devem ser usadas se os dados não mudarem.
+
+14.4 - Em programas que frequentemente executam concatenação de strings, ou outras modificações em strings, costuma ser mais eficiente implementar as modificações com a classe StringBuilder.
+
+14.5 - Aumentar a capacidade de um StringBuilder dinamicamente pode exigir um tempo relativamente longo. Executar um grande número dessas operações pode degradar o desempenho de um aplicativo. Se o tamanho de um StringBuilder vai aumentar significativamente, possivelmente múltiplas vezes, configurar sua capacidade alta no início aumentará o desempenho.
 # Erro comum de programação
 
 1.1 - Os erros como divisão por zero ocorrem enquanto um programa executa, então são chamados runtime errors 
@@ -353,6 +366,8 @@ de compilação indicando que a classe deve ser declarada abstract.
 11.4 - Se uma exceção não tiver sido capturada quando o controle entrar em um bloco finally e esse bloco lançar uma exceção que não será capturada por ele, a primeira exceção será perdida e a exceção do bloco será retornada ao método chamador.
 
 11.5 - Supor que uma exceção lançada de um bloco catch será processada por esse bloco catch ou qualquer outro bloco catch associado com a mesma instrução try pode resultar em erros de lógica.
+
+14.1 - Comparar referências com == pode levar a erros de lógica, porque == compara as referências a fim de determinar se elas referenciam o mesmo objeto, não se dois objetos têm o mesmo conteúdo. Quando dois objetos separados que contêm os mesmos valores são comparados com ==, o resultado será false. Ao comparar objetos para determinar se eles têm o mesmo conteúdo, utilize o método equals.
 
 # Boa prática de programação 
 
