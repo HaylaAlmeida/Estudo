@@ -201,6 +201,7 @@ permitem que o conteúdo de um objeto String seja modificado depois que ele é c
 14.4 - Em programas que frequentemente executam concatenação de strings, ou outras modificações em strings, costuma ser mais eficiente implementar as modificações com a classe StringBuilder.
 
 14.5 - Aumentar a capacidade de um StringBuilder dinamicamente pode exigir um tempo relativamente longo. Executar um grande número dessas operações pode degradar o desempenho de um aplicativo. Se o tamanho de um StringBuilder vai aumentar significativamente, possivelmente múltiplas vezes, configurar sua capacidade alta no início aumentará o desempenho.
+
 # Erro comum de programação
 
 1.1 - Os erros como divisão por zero ocorrem enquanto um programa executa, então são chamados runtime errors 
@@ -369,6 +370,10 @@ de compilação indicando que a classe deve ser declarada abstract.
 
 14.1 - Comparar referências com == pode levar a erros de lógica, porque == compara as referências a fim de determinar se elas referenciam o mesmo objeto, não se dois objetos têm o mesmo conteúdo. Quando dois objetos separados que contêm os mesmos valores são comparados com ==, o resultado será false. Ao comparar objetos para determinar se eles têm o mesmo conteúdo, utilize o método equals.
 
+14.2 - Uma expressão regular pode ser testada contra um objeto de qualquer classe que implemente a interface CharSequence, mas a
+expressão regular deve ser uma String. Tentar criar uma expressão regular como um StringBuilder é um erro.
+
+14.3 - O método matches (da classe String, Pattern ou Matcher) retornará true somente se o objeto de pesquisa inteiro corresponder à expressão regular. Os métodos find e lookingAt (da classe Matcher) retornarão true se uma parte do objeto de pesquisa corresponder à expressão regular.
 # Boa prática de programação 
 
 2.1 - Algumas organizações exigem que todo programa comece com um comentário que informa o objetivo e o autor 
