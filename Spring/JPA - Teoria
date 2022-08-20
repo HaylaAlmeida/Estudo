@@ -1,0 +1,6 @@
+# O que é JPA?
+
+JPA é uma especificação de Java para gerenciar dados relacionais em aplicações Java. Nos permite acessar e persistir dados entre objeto/classe e bases de dados relacionais.
+É uma ORM (Object Relational Mapping). É um conjunto de interfaces. Fornece uma API EntityManager em tempo de execução para processar queries e transações nos objetos
+do banco de dados.
+
