@@ -25,7 +25,7 @@
 
 ## BUILD TOOLS
 
-◼ Gradle																															◼ Mave																							◼ Ant
+◼ Gradle																															◼ Maven																							◼ Ant
 
 ## WEB FRAMEWORKS
 
